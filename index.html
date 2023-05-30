@@ -9,7 +9,7 @@
     <script src="https://d3js.org/d3-geo.v1.min.js"></script>
     <script src="https://d3js.org/topojson.v2.min.js"></script>
     <script src="scripts-v2/ghost_template-v2.js"></script>
-    <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     <link rel="stylesheet" href="styles-v2/style-v7.css"/>
     <link rel="stylesheet" href="styles-v2/style-mobile-v5.css"/>
     <link rel="stylesheet" href="discord-v2/discord.css" >
@@ -76,7 +76,7 @@
                 <span id="minus_speed" class="speed_icon" onclick="adjustOffset(1);setTempo();saveSettings();">+</span></div>
             <div class="modifier_note">(调整脚步速度)</div>
             <hr>
-            <div class="modifier_volume yfont white">速度滤波器逻辑   </div>
+            <div class="modifier_volume yfont white">速度滤波器逻辑</div>
             <div class="speed_logic_select">
                 <span>OR</span>
                 <label for="speed_logic_type" onchange="filter();saveSettings();">
@@ -234,7 +234,7 @@
                 </label>
                 <img src="imgs/metronome.png">
             </div>
-            <div class="modifier_note">(Click &#128266; to hear speed)</div>
+            <div class="modifier_note">(点击 &#128266; 来听速度)</div>
             <hr>
             <div class="modifier_smudge_timer yfont white" onclick="toggle_timer()">圣木倒计时</div>
             <div class="line_labels" onclick="toggle_timer();send_timer();">
@@ -255,7 +255,7 @@
             </div>
             <div class="modifier_note_2" onclick="toggle_timer();send_timer();">(按 'T' 启停)</div>
             <hr>
-            <div class="modifier_bpm_finder yfont white">BPM Finder</div>
+            <div class="modifier_bpm_finder yfont white">根据点击频率定鬼</div>
             <button id="tap" class="yfont" onclick="bpm_tap()">
                 <div id="input_bpm">0<br>bpm</div>
                 <div>点击<div class="tap_note">(或按 'F')</div></div>
