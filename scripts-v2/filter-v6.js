@@ -2,8 +2,8 @@ function getCookie(e){let t=e+"=",i=decodeURIComponent(document.cookie).split(";
 function setCookie(e,t,i){let n=new Date;n.setTime(n.getTime()+864e5*i);let o="expires="+n.toUTCString();document.cookie=e+"="+t+";"+o+";path=/"}
 
 const all_evidence = ["DOTs","EMF 5","Fingerprints","Freezing","Ghost Orbs","Writing","Spirit Box"]
-const all_evidence_chinese = ["EMF 5","点阵投影仪","紫外线","刺骨寒温","灵球","鬼魂笔记","通灵盒"]
-const all_ghosts = ["Spirit","Wraith","Phantom","Poltergeist","Banshee","Jinn","Mare","Revenant","Shade","Demon","Yurei","Oni","Yokai","Hantu","Goryo","Myling","Onryo","The Twins","Raiju","Obake","The Mimic","Moroi","Deogen","Thaye","Dayan","Gallu","Obambo","Kormos","Deildegast"]
+const all_evidence_chinese = ["EMF 5级","点阵投影仪","紫外线","刺骨寒温","灵球","鬼魂笔迹","通灵盒"]
+const all_ghosts = ["Spirit","Wraith","Phantom","Poltergeist","Banshee","Jinn","Mare","Revenant","Shade","Demon","Yurei","Oni","Yokai","Hantu","Goryo","Myling","Onryo","The Twins","Raiju","Obake","The Mimic","Moroi","Deogen","Thaye","Dayan","Gallu","Obambo","Aswang","Kormos","Deildegast"]
 const all_speed = ["Slow","Normal","Fast"]
 
 var state = {"evidence":{},"speed":{"Slow":0,"Normal":0,"Fast":0},"ghosts":{}}
@@ -279,7 +279,7 @@ function filter(ignore_link=false){
         var name = ghosts[i].getElementsByClassName("ghost_name")[0].textContent;
         var evi_objects = ghosts[i].getElementsByClassName("ghost_evidence_item")
         var evidence = []
-        for (var j = 0; j < evi_objects.length; j++){evidence.push(evi_objects[j].textContent)}
+        for (var j = 0; j < evi_objects.length; j++){evidence.push(evi_objects[j].dataset.evidence || evi_objects[j].textContent)}
         var nm_evidence = ghosts[i].getElementsByClassName("ghost_nightmare_evidence")[0].textContent;
         var speed = ghosts[i].getElementsByClassName("ghost_speed")[0].textContent;
         if ((name == "The Mimic" || name == "拟魂")){
