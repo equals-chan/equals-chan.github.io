@@ -2,8 +2,8 @@ function getCookie(e){let t=e+"=",i=decodeURIComponent(document.cookie).split(";
 function setCookie(e,t,i){let n=new Date;n.setTime(n.getTime()+864e5*i);let o="expires="+n.toUTCString();document.cookie=e+"="+t+";"+o+";path=/"}
 
 const all_evidence = ["DOTs","EMF 5","Fingerprints","Freezing","Ghost Orbs","Writing","Spirit Box"]
-const all_evidence_chinese = ["EMF 5","点阵投影仪","指纹","刺骨寒温","灵球","鬼魂笔记","通灵盒"]
-const all_ghosts = ["Spirit","Wraith","Phantom","Poltergeist","Banshee","Jinn","Mare","Revenant","Shade","Demon","Yurei","Oni","Yokai","Hantu","Goryo","Myling","Onryo","The Twins","Raiju","Obake","The Mimic","Moroi","Deogen","Thaye"]
+const all_evidence_chinese = ["EMF 5","点阵投影仪","紫外线","刺骨寒温","灵球","鬼魂笔记","通灵盒"]
+const all_ghosts = ["Spirit","Wraith","Phantom","Poltergeist","Banshee","Jinn","Mare","Revenant","Shade","Demon","Yurei","Oni","Yokai","Hantu","Goryo","Myling","Onryo","The Twins","Raiju","Obake","The Mimic","Moroi","Deogen","Thaye","Dayan","Gallu","Obambo","Kormos","Deildegast"]
 const all_speed = ["Slow","Normal","Fast"]
 
 var state = {"evidence":{},"speed":{"Slow":0,"Normal":0,"Fast":0},"ghosts":{}}
@@ -13,7 +13,7 @@ var user_settings = {"num_evidences":3,"ghost_modifier":2,"volume":50,"offset":0
 let hasLink = false;
 
 function loadData(){
-    fetch("https://zero-network.net/phasmophobia/data/ghosts.json", {signal: AbortSignal.timeout(2000)})
+    fetch("backup-data/ghosts_backup.json?v=20261022")
     .then(data => data.json())
     .then(data => {
         loadSettings()
@@ -282,7 +282,7 @@ function filter(ignore_link=false){
         for (var j = 0; j < evi_objects.length; j++){evidence.push(evi_objects[j].textContent)}
         var nm_evidence = ghosts[i].getElementsByClassName("ghost_nightmare_evidence")[0].textContent;
         var speed = ghosts[i].getElementsByClassName("ghost_speed")[0].textContent;
-        if (name == "The Mimic"){
+        if ((name == "The Mimic" || name == "拟魂")){
             evidence.push("Ghost Orbs")
             mimic_evi = evidence
             nm_evidence = "Ghost Orbs"
@@ -315,7 +315,7 @@ function filter(ignore_link=false){
         else if (num_evidences == "2"){
 
 
-            if (evi_array.length == 3 && name != "The Mimic"){
+            if (evi_array.length == 3 && (name != "The Mimic" && name != "拟魂")){
                 keep = false
             }
             else if (evi_array.length > 0){
@@ -344,7 +344,7 @@ function filter(ignore_link=false){
         // Insanity
         else if (num_evidences == "1"){
 
-            if (evi_array.length == 2 && name != "The Mimic"){
+            if (evi_array.length == 2 && (name != "The Mimic" && name != "拟魂")){
                 keep = false
             }
             else if (evi_array.length > 0){
@@ -373,11 +373,11 @@ function filter(ignore_link=false){
         // Apocalypse
         else if (num_evidences == "0"){
 
-            if (evi_array.length > 0 && name != "The Mimic"){
+            if (evi_array.length > 0 && (name != "The Mimic" && name != "拟魂")){
                 keep = false
             }
 
-            if (not_evi_array.length > 0 && name == "The Mimic"){
+            if (not_evi_array.length > 0 && (name == "The Mimic" || name == "拟魂")){
                 keep = false
             }
         }
@@ -408,16 +408,16 @@ function filter(ignore_link=false){
 
         // Check if speed is being kept
         if (keep){
-            if(min_speed < base_speed || name == "The Mimic"){
+            if(min_speed < base_speed || (name == "The Mimic" || name == "拟魂")){
                 keep_speed.add('Slow')
             }
-            if ((speed_type == "range" && min_speed <= base_speed && base_speed <= max_speed) || name == "The Mimic"){
+            if ((speed_type == "range" && min_speed <= base_speed && base_speed <= max_speed) || (name == "The Mimic" || name == "拟魂")){
                 keep_speed.add('Normal')
             }
             else if(min_speed === base_speed || max_speed === base_speed){
                 keep_speed.add('Normal')
             }
-            if(max_speed > base_speed || name == "The Mimic"){
+            if(max_speed > base_speed || (name == "The Mimic" || name == "拟魂")){
                 keep_speed.add('Fast')
             }
         }
@@ -426,9 +426,9 @@ function filter(ignore_link=false){
         if (spe_array.length > 0){
             var skeep = false,nkeep = false,fkeep = false;
 
-            var shas = (min_speed < base_speed || name == "The Mimic")
-            var nhas = (speed_type == "or" && (min_speed === base_speed || max_speed === base_speed || name == "The Mimic")) || (speed_type == "range" && min_speed <= base_speed && base_speed <= max_speed)
-            var fhas = (max_speed > base_speed || name == "The Mimic")
+            var shas = (min_speed < base_speed || (name == "The Mimic" || name == "拟魂"))
+            var nhas = (speed_type == "or" && (min_speed === base_speed || max_speed === base_speed || (name == "The Mimic" || name == "拟魂"))) || (speed_type == "range" && min_speed <= base_speed && base_speed <= max_speed)
+            var fhas = (max_speed > base_speed || (name == "The Mimic" || name == "拟魂"))
 
             spe_array.forEach(function (item,index){
 
