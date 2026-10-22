@@ -2,8 +2,7 @@ function getCookie(e){let t=e+"=",i=decodeURIComponent(document.cookie).split(";
 function setCookie(e,t,i){let n=new Date;n.setTime(n.getTime()+864e5*i);let o="expires="+n.toUTCString();document.cookie=e+"="+t+";"+o+";path=/"}
 
 const all_evidence = ["DOTs","EMF 5","Fingerprints","Freezing","Ghost Orbs","Writing","Spirit Box"]
-const all_evidence_chinese = ["EMF 5","点阵投影仪","指纹","刺骨寒温","灵球","鬼魂笔记","通灵盒"]
-const all_ghosts = ["Spirit","Wraith","Phantom","Poltergeist","Banshee","Jinn","Mare","Revenant","Shade","Demon","Yurei","Oni","Yokai","Hantu","Goryo","Myling","Onryo","The Twins","Raiju","Obake","The Mimic","Moroi","Deogen","Thaye"]
+const all_ghosts = ["Spirit","Wraith","Phantom","Poltergeist","Banshee","Jinn","Mare","Revenant","Shade","Demon","Yurei","Oni","Yokai","Hantu","Goryo","Myling","Onryo","The Twins","Raiju","Obake","The Mimic","Moroi","Deogen","Thaye","Dayan","Gallu","Obambo","Aswang","Kormos","Deildegast"]
 const all_speed = ["Slow","Normal","Fast"]
 
 var state = {"evidence":{},"speed":{"Slow":0,"Normal":0,"Fast":0},"ghosts":{}}
@@ -13,7 +12,7 @@ var user_settings = {"num_evidences":3,"ghost_modifier":2,"volume":50,"offset":0
 let hasLink = false;
 
 function loadData(){
-    fetch("https://zero-network.net/phasmophobia/data/ghosts.json", {signal: AbortSignal.timeout(2000)})
+    fetch(ghost_data_url)
     .then(data => data.json())
     .then(data => {
         loadSettings()
@@ -28,7 +27,7 @@ function loadData(){
             <button id="${data.evidence[i]}" class="tricheck white" name="evidence" onclick="tristate(this)" value="${data.evidence[i]}">
                 <div id="checkbox" class="neutral"><span class="icon"></span></div>
                 <div class="label" style="display: none;" >${data.evidence[i]}</div>
-                <div >${all_evidence_chinese[i]}</div>
+                <div >${evi_name[data.evidence[i]] || data.evidence[i]}</div>
             </button>
             `
         }
@@ -61,13 +60,13 @@ function loadData(){
     
         for (const [key, value] of Object.entries(start_state["ghosts"])){ 
             if (value == 0){
-                fade(document.getElementById(key));
+                if(document.getElementById(key)){fade(document.getElementById(key));}
             }
             else if (value == -1){
-                remove(document.getElementById(key));
+                if(document.getElementById(key)){remove(document.getElementById(key));}
             }
             else if (value == 2){
-                select(document.getElementById(key));
+                if(document.getElementById(key)){select(document.getElementById(key));}
             }
         }
         for (const [key, value] of Object.entries(start_state["evidence"])){ 
@@ -92,7 +91,7 @@ function loadData(){
     .catch(error => {
         loadSettings()
 
-        fetch("backup-data/ghosts_backup.json")
+        fetch(ghost_data_url)
         .then(data => data.json())
         .then(data => {
             var cards = document.getElementById('cards')
@@ -104,7 +103,7 @@ function loadData(){
                 evidence_list.innerHTML += `
                 <button id="${data.evidence[i]}" class="tricheck phasfont white" name="evidence" onclick="tristate(this)" value="${data.evidence[i]}">
                     <div id="checkbox" class="neutral"><span class="icon"></span></div>
-                    <div class="label">${all_evidence_chinese[i]}</div>
+                    <div class="label">${evi_name[data.evidence[i]] || data.evidence[i]}</div>
                     <div class="label" style="display: none;">${data.evidence[i]}</div>
                 </button>
                 `
@@ -183,11 +182,11 @@ function select(elem,ignore_link=false){
 
         if (on){
             $(elem).removeClass("selected");
-            state["ghosts"][$(elem).find(".ghost_name")[0].innerText] = 1;
+            state["ghosts"][$(elem).attr("id")] = 1;
         }
         else{
             $(elem).addClass("selected");
-            state["ghosts"][$(elem).find(".ghost_name")[0].innerText] = 2;
+            state["ghosts"][$(elem).attr("id")] = 2;
         }
         setCookie("state",JSON.stringify(state),1)
         if(!ignore_link){filter(ignore_link)}
@@ -197,11 +196,11 @@ function select(elem,ignore_link=false){
 
 function fade(elem,ignore_link=false){
     if(!ignore_link){
-        if (state["ghosts"][$(elem).find(".ghost_name")[0].innerText] != 0){
-            state["ghosts"][$(elem).find(".ghost_name")[0].innerText] = 0;
+        if (state["ghosts"][$(elem).attr("id")] != 0){
+            state["ghosts"][$(elem).attr("id")] = 0;
         }
         else{
-            state["ghosts"][$(elem).find(".ghost_name")[0].innerText] = 1;
+            state["ghosts"][$(elem).attr("id")] = 1;
         }
     }
     $(elem).toggleClass("faded");
@@ -212,7 +211,7 @@ function fade(elem,ignore_link=false){
 }
 
 function remove(elem,ignore_link=false){
-    state["ghosts"][$(elem).find(".ghost_name")[0].innerText] = -1;
+    state["ghosts"][$(elem).attr("id")] = -1;
     $(elem).addClass("permhidden");
     setCookie("state",JSON.stringify(state),1)
     if (hasLink && !ignore_link){send_state()}
@@ -276,11 +275,11 @@ function filter(ignore_link=false){
 
     for (var i = 0; i < ghosts.length; i++){
         var keep = true;
-        var name = ghosts[i].getElementsByClassName("ghost_name")[0].textContent;
+        var name = ghosts[i].id;
         var evi_objects = ghosts[i].getElementsByClassName("ghost_evidence_item")
         var evidence = []
-        for (var j = 0; j < evi_objects.length; j++){evidence.push(evi_objects[j].textContent)}
-        var nm_evidence = ghosts[i].getElementsByClassName("ghost_nightmare_evidence")[0].textContent;
+        for (var j = 0; j < evi_objects.length; j++){evidence.push(evi_objects[j].dataset.evidence || evi_objects[j].textContent)}
+        var nm_evidence = ghosts[i].getElementsByClassName("ghost_nightmare_evidence")[0].dataset.evidence;
         var speed = ghosts[i].getElementsByClassName("ghost_speed")[0].textContent;
         if (name == "The Mimic"){
             evidence.push("Ghost Orbs")
@@ -726,8 +725,8 @@ function showMaps(){
 
 function flashMode(){
     var cur_evidence = parseInt(document.getElementById("num_evidence").value)
-    var mode_text = ["天启","疯狂","噩梦","专家"][cur_evidence]
-    document.getElementById("game_mode").innerHTML = `${mode_text}<span>(${cur_evidence} 个证据)</span>`
+    var mode_text = t(["天启","疯狂","噩梦","专家"][cur_evidence])
+    document.getElementById("game_mode").innerHTML = `${mode_text}<span>(${cur_evidence} ${t("个证据")})</span>`
     $("#game_mode").fadeIn(500,function () {
         $("#game_mode").delay(500).fadeOut(500);
       });
