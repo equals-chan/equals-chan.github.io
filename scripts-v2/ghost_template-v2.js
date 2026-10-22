@@ -18,16 +18,6 @@ evi_icons = {
     "Spirit Box": "imgs/spirit-box-icon.png", 
 }
 
-evi_name = {
-    "EMF 5": "EMF 5级",
-    "DOTs": "点阵投影仪",
-    "Fingerprints": "紫外线",
-    "Freezing": "刺骨寒温",
-    "Ghost Orbs": "灵球",
-    "Writing": "鬼魂笔迹",
-    "Spirit Box": "通灵盒",
-}
-
 behavior_titles = {
     "<Tells>":"<div class='dtitle'><i>Tells</i><div class='ddash'></div></div>",
     "<Behaviors>":"<div class='dtitle'><i>Behaviors</i><div class='ddash'></div></div>",
@@ -51,7 +41,7 @@ class Ghost {
         }
 
         this.ghostTemplate = `
-        <div class="ghost_card" id="${data.ghost}">
+        <div class="ghost_card" id="${data.key || data.ghost}">
                 <div class="ghost_name">${data.ghost}</div>
                 <div class="ghost_hunt_info">
                     <div class="ghost_hunt ${parseInt(data.hunt_sanity) > 50 ?'high':parseInt(data.hunt_sanity) < 50 ? 'low':'average'}"><img src="imgs/sanity.png">${data.hunt_sanity}</div>
@@ -67,7 +57,7 @@ class Ghost {
                     <div class="ghost_evidence_item" data-evidence="${data.evidence[1]}" ${data.evidence[1] in evi_color ? 'style=\"color:' + evi_color[data.evidence[1]] + ' !important;\"' : ''}><img src="${evi_icons[data.evidence[1]]}">${evi_name[data.evidence[1]] || data.evidence[1]}</div>
                     <div class="ghost_evidence_item" data-evidence="${data.evidence[2]}" ${data.evidence[2] in evi_color ? 'style=\"color:' + evi_color[data.evidence[2]] + ' !important;\"' : ''}><img src="${evi_icons[data.evidence[2]]}">${evi_name[data.evidence[2]] || data.evidence[2]}</div>
                 </div>
-                <div class="ghost_nightmare_evidence">${data.nightmare_evidence?data.nightmare_evidence:''}</div>
+                <div class="ghost_nightmare_evidence" data-evidence="${data.nightmare_evidence || ''}">${data.nightmare_evidence ? (evi_name[data.nightmare_evidence] || data.nightmare_evidence) : ''}</div>
                 <div class="ghost_behavior">
                    ${this.behavior(data.behavior)}
                 </div>
