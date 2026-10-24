@@ -1,308 +1,113 @@
-<head>
-    <meta charset="UTF-8">
-    <title>恐鬼症助手</title>
-    
-    <link rel="icon" type="image/x-icon" href="https://zero-network.net/phasmophobia/static/imgs/favicon.ico">
-    <meta name="viewport" content="user-scalable=no" />
-    <script src="jquery/jquery-3.6.2.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.2/d3.min.js"></script>
-    <script src="https://d3js.org/d3-geo.v1.min.js"></script>
-    <script src="https://d3js.org/topojson.v2.min.js"></script>
-    <script src="i18n/i18n.js?v=20261022"></script>
-    <script src="scripts-v2/ghost_template-v2.js?v=20261022"></script>
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <link rel="stylesheet" href="styles-v2/style-v7.css"/>
-    <link rel="stylesheet" href="styles-v2/style-mobile-v5.css"/>
-    <link rel="stylesheet" href="discord-v2/discord.css" >
-    <link rel="stylesheet" href="wiki-v2/wiki-v1.css" >
-    <link rel="stylesheet" href="events-v2/events.css" >
-    <link rel="stylesheet" href="styles-v2/sparkles.css" >
-    <link rel="stylesheet" href="i18n/i18n.css" >
-</head>
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <meta name="color-scheme" content="light" />
+    <meta
+      name="description"
+      content="A Windows 95 desktop theme for Docsify. Folders, files, draggable windows, and iframe .exe programs."
+    />
+    <title>Win95 Docsify</title>
+    <link rel="icon" href="theme/assets/icons/favicon.ico" />
 
-<body>
+    <!-- Docsify core theme -->
+    <link rel="stylesheet" href="theme/vendor/docsify-core.min.css" />
+    <!-- Win95 desktop theme -->
+    <link rel="stylesheet" href="theme/win95.css" />
+  </head>
 
-    <div id="lang_switch"><span data-lang="zh-CN">简</span><span data-lang="zh-TW">繁</span><span data-lang="en">EN</span></div>
+  <body>
+    <div id="app"></div>
 
-    <div id="blackout" style="display: none;">
-        <div id="info_box">
-            <span class="icon" onclick="showInfo()"></span>
-
-            <h3>Data Accuracy</h3>
-            <div class="info_text">The data was last reviewed by Phasmophobia Discord Moderator "Shuee01" on 2023-01-04 (v0.8.0.5)</div>
-            <div class="info_text" style="padding-top: 15px;">Graphics settings and GPU/CPU load will impact the speed of footstep sounds in game. What you hear in game may differ and not match exactly with what is heard on this guide. You can adjust the "Speed Offset" in settings to more accurately align the footstep sounds to what you hear in game.</div>
-            <h3>Copyright and Disclaimers</h3>
-            <div class="info_block">Phasmophobia, the Phasmophobia logo, and any game related info, images, or sounds (specifically footstep sounds, banshee scream, and deogen breathing) are either ® or TM, Kinetic Games Limited. Any assets used within this site are used with direct permission from Kinetic Games.<br><br>
-                The Zero-Network "Unofficial Phasmophobia Cheat Sheet" is not created by nor affiliated with Kinetic Games, its developers, or partners. This service is created by an independent third party.<br><br>
-                This service is created as an educational tool for the Phasmophobia community, no copyright infringement intended.<br>
-                <hr>
-                Fair Use Disclaimer:<br><br>
-                Copyright Disclaimer Under Section 107 of the Copyright Act 1976, allowance is made for "fair use" for purposes such as criticism, comment, news reporting, teaching, scholarship and research. Fair use is a use permitted by copyright statute that might otherwise be infringing.<br>
-                <hr>
-                The website itself, its design, layout, and functionality are copyrighted by Ty Bayn (Zero-Network).<br><br>
-            </div>
-            <h3>Recognition</h3>
-            <div class="info_image_text">
-                <span class="sparkling"><img src="https://zero-network.net/phasmophobia/static/imgs/vip.png"></span>
-                <div>The developer of this guide (SeverelyZero) received an in-game VIP badge from Official Content Creator "JOJOsaysbreee" for the creation of this guide as a community resource (2022-12-29)</div>
-            </div>
-            <div class="thankyou_text">
-                (A special thank you to Skree'kaw#7311, Vandelay#5754, and Puch#3398 for their help with testing and QA)<br>
-                <strong>Found a bug? Have ideas? Find me on Discord! SeverelyZero#3315</strong>
-            </div>
-            <div class="copyright_text">Copyright © 2023 Ty Bayn (Zero-Network)</div>
-            
-        </div>
-    </div>
-
-    <div id="settings_box" style="left:-32px;">
-        <div id="settings_tab" onclick="showSettings()">设置<div id="settings_status"></div></div>
-        <span class="icon" onclick="showSettings()"></span>
-
-        <div class="settings_title yfont white">设置</div>
-        <div class="info_block">
-            <div class="modifier_volume yfont white">音量</div>
-            <input type="range" id="modifier_volume" name="volume" 
-                min="0" max="100" step="2" default="50" onchange="setVolume();saveSettings();">
-            <div class="modifier_volume_labels">
-                <div class="modifier_volume_label">0%</div>
-                <div class="modifier_volume_label">25%</div>
-                <div class="modifier_volume_label">50%</div>
-                <div class="modifier_volume_label">75%</div>
-                <div class="modifier_volume_label">100%</div>
-            </div>
-            <div class="modifier_note">(改变脚步音量)</div>
-            <hr>
-            <div class="modifier_volume yfont white">速度补偿</div>
-            <div id="speed_offset">
-                <span id="minus_speed" class="speed_icon" onclick="adjustOffset(-1);setTempo();saveSettings();">-</span>
-                <span id="offset_value"> 0% </span>
-                <span id="minus_speed" class="speed_icon" onclick="adjustOffset(1);setTempo();saveSettings();">+</span></div>
-            <div class="modifier_note">(调整脚步速度)</div>
-            <hr>
-            <div class="modifier_volume yfont white">速度滤波器逻辑</div>
-            <div class="speed_logic_select">
-                <span>OR</span>
-                <label for="speed_logic_type" onchange="filter();saveSettings();">
-                    <input type="checkbox" name="" id="speed_logic_type">
-                    <div class="toggle"></div>
-                </label>
-                <span>AND</span>
-            </div>
-            <hr>
-            <div class="modifier_volume yfont white">BPM to m/s</div>
-            <div class="speed_logic_select">
-                <span>Exact</span>
-                <label for="bpm_type" onchange="bpm_calc(true);saveSettings();">
-                    <input type="checkbox" name="" id="bpm_type">
-                    <div class="toggle"></div>
-                </label>
-                <span>Rounded</span>
-            </div>
-            <hr>
-            <div class="modifier_volume yfont white">Shared Journal Link</div>
-            <div class="journal_link">
-                <input type="text" placeholder="XXXXXX" id="room_id" class="text">
-                <div class="journal_link_buttons">
-                    <button id="room_id_create" class="journal_link_button" onclick="create_room()">Create</button>
-                    <button id="room_id_link" class="journal_link_button" onclick="link_room()">Join</button>
-                    <button id="room_id_disconnect" class="journal_link_button" style="display: none;" onclick="disconnect_room()">Disconnect</button>
-                </div>
-            </div>
-            <div id="room_id_note" class="modifier_note">(STATUS: Not connected)</div>
-        </div>
-        <div id="session">-</div>
-    </div>
-
-    <div id="discord_link_box" style="left:-32px;">
-        <div id="discord_link_tab" onclick="showDiscordLink();getLink();">Discord Link<div id="discord_link_status"></div></div>
-        <span class="icon" onclick="showDiscordLink()"></span>
-        <div class="settings_title yfont white">Discord Link</div>
-        <div class="info_block">
-            <img id="discord_avatar" src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a6a49cf127bf92de1e2_icon_clyde_blurple_RGB.png">
-            <div id="discord_name">Link your Discord</div>
-            <div id="discord_link_date" class="hidden"></div>
-            <div id="discord_stats" class="discord_note">Linking your Discord account will allow you to record what is input into this Cheat Sheet, allowing you to view statistics about ghosts, evidences, and play style!</div>
-            <div id="discord_note" class="discord_note grey">(1) Linking does not maintain an active connection to Discord, you will need to relink every 30 days or if you update your Discord profile. (2) Stats provided are purely from the use of this Cheat Sheet. We do not connect to the Phasmophobia game or Steam in any way.</div>
-            <div>
-                <a id="discord_link" href="https://discord.com/api/oauth2/authorize?client_id=1077230568422510602&redirect_uri=https%3A%2F%2Fzero-network.net%2Fanalytics%2Fdiscord-connect&response_type=code&scope=identify">
-                    <div id="discord_login_button">Link</div>
-                </a>
-                <div id="discord_unlink_button" class="hidden" onclick="discord_unlink()">Unlink</div>
-            </div>
-        </div>
-    </div>
-
-    <div id="event_box" style="left:-182px;">
-        <div id="event_tab" onclick="showEvent()">Current Event</div>
-        <span class="icon" onclick="showEvent()"></span>
-        <div class="settings_title yfont white">Current Event</div>
-        <div class="info_block">
-            <div id="event_title">No current events!</div>
-            <hr>
-            <div id="event_details">
-                Check back on the next update!
-            </div>
-        </div>
-    </div>
-
-    <div id="wiki_box" style="left:-182px;">
-        <div id="wiki_tab" onclick="showWiki();setFlicker();">教学</div>
-        <span class="icon" onclick="showWiki();setFlicker();"></span>
-        <div class="settings_title yfont white">教学</div>
-        <div id="wiki-body" class="info_block"></div>
-    </div>
-
-    <div id="maps_box" style="left:-388px">
-        <div id="maps_tab" onclick="showMaps()">地图</div>
-        <span class="icon" onclick="showMaps()"></span>
-
-        <div class="maps_title yfont white">地图</div>
-        <div class="maps_image" onmouseenter="zoomMap(this)" onmouseleave="unZoomMap(this)" onmousemove="moveZoom(this,event)">
-            <div class="map_image"></div>
-            <div class="hover_zoom">+ Hover to zoom</div>
-        </div>
-        <div class="maps_credit">Map images belong to <a href="https://www.reddit.com/user/Fantismal" target="_blank">Fantismal</a> (<a href="https://imgur.com/a/iEI0tJo" target="_blank">Images</a>)</div>
-        <div class="maps_buttons">
-            <button class="maps_button selected_map" onclick="changeMap(this,'tanglewood.png')">6 Tanglewood Drive</button>
-            <button class="maps_button" onclick="changeMap(this,'edgefield.png')">42 Edgefield Road</button>
-            <button class="maps_button" onclick="changeMap(this,'ridgeview.png')">10 Ridgeview Court</button>
-            <button class="maps_button" onclick="changeMap(this,'grafton.png')">Grafton Farmhouse</button>
-            <button class="maps_button" onclick="changeMap(this,'willow.png')">13 Willow Street</button>
-            <button class="maps_button" onclick="changeMap(this,'brownstone.png')">Brownstone High School</button>
-            <button class="maps_button" onclick="changeMap(this,'bleasdale.png')">Bleasdale Farmhouse</button>
-            <button class="maps_button" onclick="changeMap(this,'sunnymeadows.png')">Sunny Meadows</button>
-            <button class="maps_button" onclick="changeMap(this,'sunnymeadows_courtyard.png')">SM Restricted - Courtyard</button>
-            <button class="maps_button" onclick="changeMap(this,'sunnymeadows_male.png')">SM Restricted - Male Wing</button>
-            <button class="maps_button" onclick="changeMap(this,'sunnymeadows_female.png')">SM Restricted - Female Wing</button>
-            <button class="maps_button" onclick="changeMap(this,'sunnymeadows_hospital.png')">SM Restricted - Hospital</button>
-            <button class="maps_button" onclick="changeMap(this,'sunnymeadows_restricted.png')">SM Restricted - Restricted</button>
-            <button class="maps_button" onclick="changeMap(this,'prison.png')">Prison</button>
-            <button class="maps_button" onclick="changeMap(this,'maplelodge.png')">Maple Lodge Campsite</button>
-            <button class="maps_button" onclick="changeMap(this,'woodwind.png')">Camp Woodwind</button>
-        </div>
-    </div>
-    
-    <div class="data">
-        <div class="header"></div>
-        <div class="evidence_title yfont white">
-            证据 <select name="num_evidence" id="num_evidence" class="num_evidence" onchange="filter();flashMode();saveSettings();">
-                <option value="3">3</option>
-                <option value="2">2</option>
-                <option value="1">1</option>
-                <option value="0">0</option>
-              </select>
-        </div>
-        <div id="game_mode" class="yfont white" style="display:none;">Insanity</div>
-        <div id="evidence" class="evidence">
-            <div class="dot-flashing"></div>
-        </div>
-
-        <div class="speed_title yfont white">
-            速度
-        </div>
-        <div class="speed">
-            <button id="Slow" class="tricheck white" name="speed" onclick="dualstate(this)" value="Slow">
-                <div id="checkbox" class="neutral"><span class="icon"></span></div>
-                <div class="label">慢速</div>
-            </button>
-            <button id="Normal" class="tricheck white" name="speed" onclick="dualstate(this)" value="Normal">
-                <div id="checkbox" class="neutral"><span class="icon"></span></div>
-                <div class="label">常速</div>
-            </button>
-            <button id="Fast" class="tricheck white" name="speed" onclick="dualstate(this)" value="Fast">
-                <div id="checkbox" class="neutral"><span class="icon"></span></div>
-                <div class="label">快速</div>
-            </button>
-        </div>
-
-        <div class="modifier_title yfont white">
-            工具
-        </div>
-        <div class="modifier">
-            <div class="modifier_ghost_speed yfont white">鬼魂速度</div>
-            <input type="range" id="ghost_modifier_speed" name="volume" 
-                min="0" max="4" step="1" default="2" onchange="setTempo();bpm_calc(true);saveSettings();send_state();">
-            <div class="modifier_ghost_speed_labels">
-                <div class="modifier_ghost_speed_label">50%</div>
-                <div class="modifier_ghost_speed_label">75%</div>
-                <div class="modifier_ghost_speed_label">100%</div>
-                <div class="modifier_ghost_speed_label">125%</div>
-                <div class="modifier_ghost_speed_label">150%</div>
-            </div>
-            <div class="modifier_sound_select">
-                <img src="imgs/footsteps.png">
-                <label for="modifier_sound_type" onchange="setSoundType();saveSettings();">
-                    <input type="checkbox" name="" id="modifier_sound_type">
-                    <div class="toggle"></div>
-                </label>
-                <img src="imgs/metronome.png">
-            </div>
-            <div class="modifier_note">(点击 &#128266; 来听速度)</div>
-            <hr>
-            <div class="modifier_smudge_timer yfont white" onclick="toggle_timer()">圣木倒计时</div>
-            <div class="line_labels" onclick="toggle_timer();send_timer();">
-                <div class="spirit_line_label">魂魄</div>
-                <div class="demon_line_label">恶魔</div>
-            </div>
-            <div id="progress" onclick="toggle_timer();send_timer();">
-                <img src="imgs/play.png" id="play_button" class="play_button">
-                <div id="progressBar">
-                    <div id="progressBarInner" class="bar"></div>
-                    <div class="demon_line"></div>
-                    <div class="ghost_line"></div>
-                    <div class="spirit_line"></div>
-                </div>
-            </div>
-            <div id="time_left" onclick="toggle_timer();send_timer();">
-                <span id="minute">03</span>:<span id="second">00</span>
-            </div>
-            <div class="modifier_note_2" onclick="toggle_timer();send_timer();">(按 'T' 启停)</div>
-            <hr>
-            <div class="modifier_bpm_finder yfont white">根据点击频率定鬼</div>
-            <button id="tap" class="yfont" onclick="bpm_tap()">
-                <div id="input_bpm">0<br>bpm</div>
-                <div>点击<div class="tap_note">(或按 'F')</div></div>
-                <div id="input_speed">0<br>m/s</div>
-            </button>
-            <div id="tap_viz"></div>
-            <div class="modifier_note_2">(按 'R' 重置)</div>
-            
-        </div>
-
-        <div id="cards" class="cards"><div class="dot-flashing"></div></div>
-
-        <div id="active-users"><span id="busuanzi_container_site_uv" style="color:white;">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span><span style="color:#adadad;"> · 数据 <span id="current-version-label">-</span></span></div>
-        <div class="copyright" onclick="showInfo()"><img class="question" src="imgs/question.png"> 信息有误？ / 交流QQ群（887268859）</div>
-        <button id="reset" class="yfont" onclick="reset()">重置</button>
-        <div class="footer"></div>
-
-    </div>
-
-    <div id="world" style="display:none;">
-        <div class="active_title yfont white">
-            Active Users
-        </div>
-        <span class="icon" onclick="showGlobe()"></span>
-        <canvas id="globe"></canvas>
-    </div>
-
-    <script src="scripts-v2/metronome-v2.js"></script>
-    <script src="scripts-v2/timer-v3.js"></script>
-    <script src="scripts-v2/geo-v1.js"></script>
-    <script src="discord-v2/discord-v2.js"></script>
-    <script src="wiki-v2/wiki-v2.js"></script>
-    <script src="scripts-v2/filter-v6.js?v=20261022"></script>
-    <script src="events-v2/events.js"></script>
-    <script src="scripts-v2/wslink-v3.js"></script>
-    <script src="scripts-v2/zn-v4.js"></script>
-    <script src="scripts-v2/sparkles.js"></script>
     <script>
-        $(window).on('load', function() {
-            checkLink()
-            loadData()
-            $(function(){$("#wiki-body").load("wiki-v2/wiki-v1.html", function(){translatePage(this)})});
-        });
+      window.$docsify = {
+        name: 'Win95 Docsify',
+        loadSidebar: true,
+        homepage: 'README.md',
+        basePath: 'docs/',
+        auto2top: false,
+        keyBindings: false,
+        nativeEmoji: true,
+        notFoundPage: '_404.md',
+        win95: {
+          boot: true,
+          drive: 'C:',
+          rootName: 'My Computer',
+          startBanner: 'Windows 95',
+          icons: {
+            notepad: 'notepad.svg',
+            browser: 'browser.svg',
+          },
+          desktop: [
+            {
+              title: 'My Computer',
+              icon: 'computer',
+              action: 'explorer',
+            },
+            {
+              title: 'README.md',
+              icon: 'file',
+              action: 'doc',
+              pathKey: '/',
+            },
+            {
+              title: 'Notepad.exe',
+              icon: 'notepad.svg',
+              action: 'app',
+              url: 'docs/apps/notepad.html',
+              width: 620,
+              height: 460,
+            },
+            {
+              title: 'Example.com',
+              icon: 'browser.svg',
+              action: 'app',
+              url: 'https://example.com',
+            },
+            {
+              title: 'Recycle Bin',
+              icon: 'recycle',
+              action: 'recycle',
+            },
+            {
+              title: '恐鬼症助手.exe',
+              icon: 'phasmo-cheat-sheet.ico',
+              action: 'app',
+              url: 'https://tybayn.github.io/phasmo-cheat-sheet/?lang=zh-cn',
+            }
+          ],
+          apps: [
+            {
+              title: 'Notepad',
+              url: 'docs/apps/notepad.html',
+              icon: 'notepad.svg',
+              width: 620,
+              height: 460,
+            },
+            {
+              title: 'Example.com',
+              url: 'https://example.com',
+              icon: 'browser.svg',
+            },
+            {
+              title: 'Docsify',
+              url: 'https://docsify.js.org',
+              icon: 'browser.svg',
+            },
+          ],
+        },
+      };
     </script>
 
-</body>
+    <!-- Docsify itself -->
+    <script src="theme/vendor/docsify.min.js"></script>
+    <!-- WinBox window manager -->
+    <script src="theme/vendor/winbox.min.js"></script>
+    <!-- Win95 theme plugin: must be registered before Docsify initializes -->
+    <script src="theme/win95.js"></script>
+  </body>
+</html>

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Untitled - Notepad</title>
+    <link rel="stylesheet" href="../../theme/app.css" />
+  </head>
+  <body class="w95-app-page">
+    <div class="app-menubar">
+      <span><u>F</u>ile</span>
+      <span><u>E</u>dit</span>
+      <span><u>S</u>earch</span>
+      <span><u>H</u>elp</span>
+    </div>
+
+    <div class="app-toolbar">
+      <button class="app-btn" id="clear" type="button">New</button>
+      <button class="app-btn" id="shout" type="button">UPPERCASE</button>
+      <button class="app-btn" id="restore" type="button">Restore</button>
+    </div>
+
+    <div class="app-body">
+      <textarea class="app-textarea" id="editor" spellcheck="false">Welcome to Notepad.exe!
+
+This is a real HTML page rendered inside a WinBox iframe.
+It is not an executable. It only pretends to be one.
+
+Try this:
+  1. Drag the window by its title bar.
+  2. Resize it from any edge.
+  3. Minimize it to the taskbar and click the taskbar button to bring it back.
+  4. Open another program from the Start menu.
+
+The Docsify theme turns every external or ".exe" sidebar link into
+an iframe window. That means you can embed dashboards, demos,
+games, or any site that allows being framed.
+
+-- Win95 Docsify
+</textarea>
+    </div>
+
+    <div class="app-statusbar">
+      <span class="app-status-cell">Ln 1, Col 1</span>
+      <span class="app-status-cell">100%</span>
+    </div>
+
+    <script>
+      const editor = document.getElementById('editor');
+      const original = editor.value;
+      const status = document.querySelector('.app-status-cell');
+
+      function updateStatus() {
+        const before = editor.value.slice(0, editor.selectionStart);
+        const lines = before.split('\n');
+        status.textContent = `Ln ${lines.length}, Col ${
+          lines[lines.length - 1].length + 1
+        }`;
+      }
+
+      editor.addEventListener('input', updateStatus);
+      editor.addEventListener('keyup', updateStatus);
+      editor.addEventListener('click', updateStatus);
+
+      document.getElementById('clear').addEventListener('click', () => {
+        editor.value = '';
+        editor.focus();
+        updateStatus();
+      });
+
+      document.getElementById('shout').addEventListener('click', () => {
+        editor.value = editor.value.toUpperCase();
+        editor.focus();
+        updateStatus();
+      });
+
+      document.getElementById('restore').addEventListener('click', () => {
+        editor.value = original;
+        editor.focus();
+        updateStatus();
+      });
+
+      editor.focus();
+      updateStatus();
+    </script>
+  </body>
+</html>

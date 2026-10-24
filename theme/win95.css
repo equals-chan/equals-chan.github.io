@@ -1,0 +1,1951 @@
+/* ==========================================================================
+   Win95 Docsify Theme
+   A Windows 95 desktop shell for Docsify.
+   Load AFTER docsify core.css (or use the bundled demo index.html).
+   ========================================================================== */
+
+:root {
+  --w95-gray: #c0c0c0;
+  --w95-gray-light: #dfdfdf;
+  --w95-gray-dark: #808080;
+  --w95-white: #ffffff;
+  --w95-black: #000000;
+  --w95-navy: #000080;
+  --w95-blue: #1084d0;
+  --w95-teal: #008080;
+  --w95-title-active: linear-gradient(90deg, #000080 0%, #1084d0 100%);
+  --w95-title-inactive: linear-gradient(90deg, #808080 0%, #b5b5b5 100%);
+  --w95-font: "MS Sans Serif", "Microsoft Sans Serif", Tahoma, Geneva,
+    "SimSun", "Songti SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --w95-mono: "Courier New", "Lucida Console", "SimSun", monospace;
+  --w95-taskbar: 30px;
+  --w95-icon: 16px;
+  --w95-speed: 0.12s;
+}
+
+/* --------------------------------------------------------------------------
+   Hide the normal docsify shell
+   -------------------------------------------------------------------------- */
+
+html.w95-enabled,
+body.w95-mode {
+  height: 100%;
+  overflow: hidden !important;
+  background: var(--w95-teal) !important;
+}
+
+body.w95-mode #app,
+body.w95-mode > main,
+body.w95-mode main[role="presentation"],
+body.w95-mode > nav.app-nav,
+body.w95-mode nav.app-nav,
+body.w95-mode .sidebar,
+body.w95-mode .cover,
+body.w95-mode #skip-to-content,
+body.w95-mode .sidebar-toggle {
+  display: none !important;
+}
+
+body.w95-mode,
+body.w95-mode * {
+  box-sizing: border-box;
+}
+
+body.w95-mode {
+  font-family: var(--w95-font);
+  font-size: 12px;
+  line-height: 1.35;
+  color: var(--w95-black);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  user-select: none;
+}
+
+body.w95-mode a {
+  color: var(--w95-navy);
+}
+
+/* --------------------------------------------------------------------------
+   Desktop
+   -------------------------------------------------------------------------- */
+
+#w95-desktop {
+  position: fixed;
+  inset: 0 0 var(--w95-taskbar) 0;
+  z-index: 0;
+  overflow: hidden;
+  background-color: var(--w95-teal);
+  background-position: center;
+  background-size: cover;
+}
+
+#w95-icons {
+  position: absolute;
+  inset: 8px auto auto 8px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 4px;
+  max-height: calc(100vh - var(--w95-taskbar) - 20px);
+  max-height: calc(100dvh - var(--w95-taskbar) - 20px);
+  pointer-events: none;
+}
+
+.w95-desktop-icon {
+  width: 84px;
+  min-height: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 4px;
+  padding: 4px 2px 3px;
+  margin: 0;
+  border: 1px dotted transparent;
+  background: transparent;
+  color: var(--w95-white);
+  font: inherit;
+  text-align: center;
+  cursor: default;
+  pointer-events: auto;
+}
+
+.w95-desktop-icon .w95-icon-32 {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  image-rendering: pixelated;
+  filter: drop-shadow(1px 1px 0 rgba(0, 0, 0, 0.35));
+}
+
+.w95-desktop-icon .w95-label {
+  display: block;
+  width: 100%;
+  max-width: 80px;
+  max-height: 30px;
+  overflow: hidden;
+  color: #fff;
+  text-shadow: 1px 1px 0 #000, -1px 0 0 #000, 0 -1px 0 #000, 1px 0 0 #000,
+    0 1px 0 #000;
+  line-height: 1.2;
+  word-break: break-word;
+}
+
+.w95-desktop-icon.selected {
+  border-color: #fff;
+}
+
+.w95-desktop-icon.selected .w95-label {
+  background: var(--w95-navy);
+  text-shadow: none;
+}
+
+.w95-desktop-icon:focus-visible {
+  outline: 1px dotted #fff;
+  outline-offset: 1px;
+}
+
+/* --------------------------------------------------------------------------
+   Taskbar & start menu
+   -------------------------------------------------------------------------- */
+
+#w95-taskbar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100000;
+  height: var(--w95-taskbar);
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  padding: 2px;
+  background: var(--w95-gray);
+  border-top: 2px solid;
+  border-color: #fff #000 #000 #fff;
+  font-size: 12px;
+}
+
+#w95-start {
+  flex: 0 0 auto;
+  height: 24px;
+  min-width: 56px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 6px 0 4px;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+#w95-start .w95-start-logo {
+  width: 16px;
+  height: 16px;
+  display: grid;
+  grid-template-columns: 7px 7px;
+  grid-template-rows: 7px 7px;
+  gap: 1px;
+  transform: skewY(-6deg);
+}
+
+#w95-start .w95-start-logo i {
+  display: block;
+}
+
+#w95-start .w95-start-logo i:nth-child(1) {
+  background: #ff0000;
+}
+#w95-start .w95-start-logo i:nth-child(2) {
+  background: #00a000;
+}
+#w95-start .w95-start-logo i:nth-child(3) {
+  background: #0000ff;
+}
+#w95-start .w95-start-logo i:nth-child(4) {
+  background: #ffff00;
+}
+
+#w95-task-divider {
+  width: 2px;
+  height: 22px;
+  margin: 0 2px;
+  border-left: 1px solid #808080;
+  border-right: 1px solid #fff;
+}
+
+#w95-task-list {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 24px;
+  display: flex;
+  align-items: stretch;
+  gap: 3px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+}
+
+#w95-task-list::-webkit-scrollbar {
+  display: none;
+}
+
+.w95-task-btn {
+  flex: 0 1 168px;
+  min-width: 74px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 5px;
+  overflow: hidden;
+  color: #000;
+  font: inherit;
+  text-align: left;
+  white-space: nowrap;
+  background: var(--w95-gray);
+  border: 2px solid;
+  border-color: #fff #000 #000 #fff;
+  cursor: default;
+}
+
+.w95-task-btn img {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+
+.w95-task-btn span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.w95-task-btn.active {
+  background-color: #e8e8e8;
+  background-image: repeating-conic-gradient(#fff 0 25%, #c0c0c0 0 50%);
+  background-size: 2px 2px;
+  border-color: #000 #fff #fff #000;
+  padding: 1px 4px 0 6px;
+}
+
+.w95-task-btn:active {
+  border-color: #000 #fff #fff #000;
+}
+
+#w95-tray {
+  flex: 0 0 auto;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 6px;
+  border: 2px solid;
+  border-color: #808080 #fff #fff #808080;
+}
+
+#w95-clock {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.w95-tray-speaker {
+  width: 13px;
+  height: 12px;
+  position: relative;
+  display: inline-block;
+}
+
+.w95-tray-speaker::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 4px;
+  border: 4px solid transparent;
+  border-right-color: #000;
+  border-left-width: 5px;
+}
+
+.w95-tray-speaker::after {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 2px;
+  width: 3px;
+  height: 8px;
+  border-right: 1px solid #000;
+  border-radius: 50%;
+}
+
+#w95-startmenu {
+  position: fixed;
+  left: 2px;
+  bottom: var(--w95-taskbar);
+  z-index: 100001;
+  width: 232px;
+  max-height: calc(100vh - var(--w95-taskbar) - 8px);
+  max-height: calc(100dvh - var(--w95-taskbar) - 8px);
+  display: flex;
+  padding: 2px;
+  background: var(--w95-gray);
+  border: 2px solid;
+  border-color: #fff #000 #000 #fff;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.35);
+}
+
+#w95-startmenu[hidden] {
+  display: none;
+}
+
+.w95-start-banner {
+  flex: 0 0 26px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 6px;
+  background: linear-gradient(180deg, #000080, #1084d0);
+}
+
+.w95-start-banner span {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  color: #c0c0c0;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+.w95-start-banner b {
+  color: #fff;
+}
+
+#w95-start-items {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 2px 0 0;
+  overflow-y: auto;
+}
+
+.w95-start-item {
+  height: 34px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 0 8px;
+  border: 0;
+  background: transparent;
+  color: #000;
+  font: inherit;
+  text-align: left;
+  cursor: default;
+}
+
+.w95-start-item img {
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+
+.w95-start-item > span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.w95-start-item:hover,
+.w95-start-item:focus-visible,
+.w95-start-item.selected {
+  background: var(--w95-navy);
+  color: #fff;
+  outline: 0;
+}
+
+.w95-start-item .w95-start-sub {
+  margin-left: auto;
+  font-size: 10px;
+  color: #444;
+}
+
+.w95-start-item:hover .w95-start-sub,
+.w95-start-item:focus-visible .w95-start-sub {
+  color: #fff;
+}
+
+.w95-menu-sep {
+  height: 2px;
+  margin: 3px 4px;
+  border-top: 1px solid #808080;
+  border-bottom: 1px solid #fff;
+}
+
+/* --------------------------------------------------------------------------
+   Generic Win95 controls
+   -------------------------------------------------------------------------- */
+
+.w95-btn {
+  min-height: 23px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 1px 7px;
+  color: #000;
+  font: inherit;
+  background: var(--w95-gray);
+  border: 2px solid;
+  border-color: #fff #000 #000 #fff;
+  box-shadow: inset -1px -1px 0 #808080, inset 1px 1px 0 #dfdfdf;
+  cursor: default;
+}
+
+.w95-btn img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+
+.w95-btn:hover {
+  background: #cacaca;
+}
+
+.w95-btn:active,
+.w95-btn.active {
+  padding: 2px 6px 0 8px;
+  border-color: #000 #fff #fff #000;
+  box-shadow: inset 1px 1px 0 #808080;
+}
+
+.w95-btn:focus-visible {
+  outline: 1px dotted #000;
+  outline-offset: -4px;
+}
+
+.w95-btn[disabled] {
+  color: #808080;
+  text-shadow: 1px 1px 0 #fff;
+}
+
+.w95-btn[disabled] img {
+  opacity: 0.45;
+}
+
+.w95-input {
+  min-height: 22px;
+  display: flex;
+  align-items: center;
+  padding: 1px 4px;
+  overflow: hidden;
+  background: #fff;
+  border: 2px solid;
+  border-color: #808080 #fff #fff #808080;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  user-select: text;
+}
+
+/* --------------------------------------------------------------------------
+   Window chrome (WinBox overrides)
+   -------------------------------------------------------------------------- */
+
+.winbox.w95-window {
+  background: var(--w95-gray) !important;
+  border-radius: 0 !important;
+  box-shadow: inset 1px 1px 0 #dfdfdf, inset -1px -1px 0 #000,
+    inset 2px 2px 0 #fff, inset -2px -2px 0 #808080 !important;
+  transition: none !important;
+  font-family: var(--w95-font) !important;
+  font-size: 12px !important;
+  color: #000;
+  contain: layout style !important;
+}
+
+.w95-window .wb-header {
+  top: 2px !important;
+  left: 2px !important;
+  right: 2px !important;
+  width: auto !important;
+  height: 18px !important;
+  line-height: 18px !important;
+  padding: 0 1px !important;
+  overflow: hidden;
+  background: var(--w95-title-inactive) !important;
+  color: #d0d0d0 !important;
+  font-family: var(--w95-font) !important;
+}
+
+.w95-window.focus .wb-header {
+  background: var(--w95-title-active) !important;
+  color: #fff !important;
+}
+
+.w95-window .wb-drag {
+  height: 18px;
+  padding-left: 2px;
+  display: flex;
+  align-items: center;
+  cursor: default;
+}
+
+.w95-window .wb-icon {
+  display: block;
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+  margin: 0 3px 0 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 16px 16px;
+  image-rendering: pixelated;
+}
+
+.w95-window .wb-title {
+  color: inherit;
+  font-family: var(--w95-font);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 18px;
+  padding-left: 1px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.w95-window .wb-control {
+  height: 18px;
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  padding-top: 1px;
+}
+
+.w95-window .wb-control * {
+  position: relative;
+  width: 16px !important;
+  max-width: none !important;
+  height: 14px !important;
+  margin: 0 0 0 1px;
+  padding: 0;
+  background-color: var(--w95-gray) !important;
+  background-image: none !important;
+  border: 2px solid !important;
+  border-color: #fff #000 #000 #fff !important;
+  box-shadow: inset -1px -1px 0 #808080, inset 1px 1px 0 #dfdfdf;
+  color: #000;
+  font-family: var(--w95-font);
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 9px;
+  text-align: center;
+}
+
+.w95-window .wb-control *:active {
+  border-color: #000 #fff #fff #000 !important;
+  box-shadow: inset 1px 1px 0 #808080;
+}
+
+.w95-window .wb-control .wb-close::before {
+  content: "\00d7";
+  position: absolute;
+  inset: -1px 0 0;
+  font-size: 13px;
+  line-height: 12px;
+}
+
+.w95-window .wb-control .wb-max::before {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: 2px;
+  width: 7px;
+  height: 6px;
+  border: 1px solid #000;
+  border-top-width: 2px;
+}
+
+.w95-window .wb-control .wb-min::before {
+  content: "";
+  position: absolute;
+  left: 3px;
+  bottom: 2px;
+  width: 6px;
+  height: 2px;
+  background: #000;
+}
+
+.w95-window .wb-full {
+  display: none !important;
+}
+
+.w95-window .wb-body {
+  top: 22px !important;
+  left: 2px !important;
+  right: 2px !important;
+  bottom: 2px !important;
+  margin: 0 !important;
+  padding: 0;
+  overflow: hidden;
+  background: var(--w95-gray);
+  border: 2px solid;
+  border-color: #808080 #fff #fff #808080;
+  contain: layout style !important;
+}
+
+.winbox.w95-window.max {
+  width: 100vw !important;
+  height: calc(100vh - var(--w95-taskbar)) !important;
+  height: calc(100dvh - var(--w95-taskbar)) !important;
+  left: 0 !important;
+  top: 0 !important;
+}
+
+.winbox.w95-window.min {
+  display: none !important;
+}
+
+.w95-window .wb-n,
+.w95-window .wb-s,
+.w95-window .wb-w,
+.w95-window .wb-e,
+.w95-window .wb-nw,
+.w95-window .wb-ne,
+.w95-window .wb-se,
+.w95-window .wb-sw {
+  z-index: 5;
+}
+
+/* --------------------------------------------------------------------------
+   Menu bar
+   -------------------------------------------------------------------------- */
+
+.w95-menubar {
+  position: relative;
+  z-index: 40;
+  flex: 0 0 20px;
+  display: flex;
+  align-items: stretch;
+  padding: 0 2px;
+  background: var(--w95-gray);
+  user-select: none;
+}
+
+.w95-menu {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0 6px;
+  white-space: nowrap;
+  cursor: default;
+}
+
+.w95-menu:hover,
+.w95-menu.open {
+  background: var(--w95-navy);
+  color: #fff;
+}
+
+.w95-menu u {
+  text-decoration: underline;
+}
+
+.w95-menu-popup {
+  position: absolute;
+  z-index: 60;
+  top: 100%;
+  left: 0;
+  min-width: 172px;
+  padding: 2px;
+  background: var(--w95-gray);
+  border: 2px solid;
+  border-color: #fff #000 #000 #fff;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+  color: #000;
+  font-weight: 400;
+}
+
+.w95-menu-popup[hidden] {
+  display: none;
+}
+
+.w95-menu-entry {
+  height: 22px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  padding: 0 18px 0 8px;
+  border: 0;
+  background: transparent;
+  color: #000;
+  font: inherit;
+  text-align: left;
+  white-space: nowrap;
+  cursor: default;
+}
+
+.w95-menu-entry:hover:not([disabled]),
+.w95-menu-entry:focus-visible:not([disabled]) {
+  background: var(--w95-navy);
+  color: #fff;
+  outline: 0;
+}
+
+.w95-menu-entry[disabled] {
+  color: #808080;
+  text-shadow: 1px 1px 0 #fff;
+}
+
+.w95-menu-entry .w95-shortcut {
+  margin-left: auto;
+  padding-left: 18px;
+  color: #555;
+}
+
+.w95-menu-entry:hover .w95-shortcut,
+.w95-menu-entry:focus-visible .w95-shortcut {
+  color: #fff;
+}
+
+.w95-menu-entry .w95-check {
+  width: 12px;
+  flex: 0 0 12px;
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   Explorer
+   -------------------------------------------------------------------------- */
+
+.w95-explorer {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--w95-gray);
+}
+
+.w95-toolbar {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  padding: 3px;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #808080;
+}
+
+.w95-toolbar .w95-tool-sep {
+  width: 2px;
+  height: 22px;
+  margin: 0 2px;
+  border-left: 1px solid #808080;
+  border-right: 1px solid #fff;
+}
+
+.w95-toolbar .w95-address-wrap {
+  flex: 1 1 auto;
+  min-width: 80px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding-left: 4px;
+}
+
+.w95-toolbar .w95-address-label {
+  color: #000;
+  white-space: nowrap;
+}
+
+.w95-toolbar .w95-address {
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 22px;
+  display: flex;
+  align-items: center;
+  padding: 1px 4px;
+  background: #fff;
+  border: 2px solid;
+  border-color: #808080 #fff #fff #808080;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.w95-explorer-main {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  gap: 0;
+  padding: 0 2px;
+}
+
+.w95-tree-pane {
+  flex: 0 0 200px;
+  min-width: 110px;
+  max-width: calc(100% - 147px);
+  overflow: auto;
+  background: #fff;
+  border: 2px solid;
+  border-color: #808080 #fff #fff #808080;
+  padding: 3px 2px;
+}
+
+.w95-splitter {
+  flex: 0 0 7px;
+  position: relative;
+  z-index: 2;
+  cursor: col-resize;
+  touch-action: none;
+  background: var(--w95-gray);
+  border-left: 1px solid #fff;
+  border-right: 1px solid #808080;
+}
+
+.w95-splitter::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 2px;
+  width: 3px;
+  height: 32px;
+  margin-top: -16px;
+  background-image: linear-gradient(#808080 50%, transparent 50%);
+  background-size: 3px 6px;
+  opacity: 0.8;
+}
+
+.w95-splitter:hover,
+.w95-splitter:focus-visible {
+  background: #d0d0d0;
+}
+
+.w95-splitter:focus-visible {
+  outline: 1px dotted #000;
+  outline-offset: -2px;
+}
+
+body.w95-col-resizing {
+  cursor: col-resize !important;
+  user-select: none !important;
+}
+
+body.w95-col-resizing iframe {
+  pointer-events: none !important;
+}
+
+.w95-tree-pane::-webkit-scrollbar {
+  width: 16px;
+}
+
+.w95-tree-item {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  min-height: 19px;
+  padding: 1px 2px 1px 1px;
+  white-space: nowrap;
+  cursor: default;
+}
+
+.w95-tree-item:hover {
+  background: #e8e8e8;
+}
+
+.w95-tree-item.selected {
+  background: var(--w95-navy);
+  color: #fff;
+}
+
+.w95-tree-item.selected .w95-tree-toggle {
+  color: #000;
+}
+
+.w95-tree-children {
+  margin-left: 10px;
+  padding-left: 4px;
+  border-left: 1px dotted #a0a0a0;
+}
+
+.w95-tree-toggle {
+  flex: 0 0 9px;
+  width: 9px;
+  height: 9px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 2px;
+  background: #fff;
+  border: 1px solid #808080;
+  color: #000;
+  font-family: var(--w95-mono);
+  font-size: 8px;
+  line-height: 7px;
+  cursor: default;
+}
+
+.w95-tree-toggle.empty {
+  visibility: hidden;
+}
+
+.w95-tree-icon {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+
+.w95-tree-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.w95-file-pane {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: auto;
+  background: #fff;
+  border: 2px solid;
+  border-color: #808080 #fff #fff #808080;
+}
+
+.w95-file-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(84px, 1fr));
+  align-content: start;
+  gap: 2px;
+  padding: 8px;
+}
+
+.w95-file-card {
+  min-height: 78px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 2px;
+  color: #000;
+  text-align: center;
+  cursor: default;
+}
+
+.w95-file-card .w95-icon-32 {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+
+.w95-file-card .w95-file-name {
+  width: 100%;
+  max-width: 100%;
+  padding: 0 2px;
+  line-height: 1.2;
+  word-break: break-word;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.w95-file-card.selected {
+  background: var(--w95-navy);
+  color: #fff;
+}
+
+.w95-file-card.selected .w95-file-name {
+  background: var(--w95-navy);
+}
+
+.w95-file-card:focus-visible {
+  outline: 1px dotted #000;
+  outline-offset: -3px;
+}
+
+.w95-file-table {
+  width: 100%;
+  min-width: 0;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 12px;
+}
+
+.w95-file-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  height: 20px;
+  padding: 1px 4px;
+  background: var(--w95-gray);
+  border: 1px solid;
+  border-color: #fff #808080 #808080 #fff;
+  font-weight: 400;
+  text-align: left;
+  white-space: nowrap;
+  cursor: default;
+}
+
+.w95-file-table tbody tr {
+  cursor: default;
+}
+
+.w95-file-table tbody tr:hover {
+  background: #e8e8e8;
+}
+
+.w95-file-table tbody tr.selected {
+  background: var(--w95-navy);
+  color: #fff;
+}
+
+.w95-file-table td {
+  height: 20px;
+  padding: 1px 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.w95-file-table td.w95-file-cell-name {
+  white-space: nowrap;
+}
+
+.w95-file-table td.w95-file-cell-name img {
+  vertical-align: middle;
+  margin-right: 4px;
+}
+
+.w95-file-table td img {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+
+.w95-file-table col.w95-col-name {
+  width: auto;
+}
+.w95-file-table col.w95-col-type {
+  width: 82px;
+}
+.w95-file-table col.w95-col-size {
+  width: 42px;
+}
+.w95-file-table col.w95-col-date {
+  width: 64px;
+}
+
+.w95-statusbar {
+  flex: 0 0 22px;
+  display: flex;
+  gap: 2px;
+  padding: 2px;
+  background: var(--w95-gray);
+  font-size: 11px;
+}
+
+.w95-status-cell {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 5px;
+  overflow: hidden;
+  background: var(--w95-gray);
+  border: 1px solid;
+  border-color: #808080 #fff #fff #808080;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.w95-status-cell:first-child {
+  flex: 1 1 auto;
+}
+
+.w95-status-cell:last-child {
+  flex: 0 1 46%;
+  user-select: text;
+}
+
+/* --------------------------------------------------------------------------
+   Document windows
+   -------------------------------------------------------------------------- */
+
+.w95-doc-shell {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+}
+
+.w95-doc-scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  padding: 14px 18px 22px;
+  background: #fff;
+  color: #000;
+  font-family: var(--w95-font);
+  font-size: 13px;
+  line-height: 1.6;
+  user-select: text;
+}
+
+.w95-doc-scroll::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.w95-doc-scroll > :first-child {
+  margin-top: 0 !important;
+}
+
+.w95-doc-scroll h1,
+.w95-doc-scroll h2,
+.w95-doc-scroll h3,
+.w95-doc-scroll h4,
+.w95-doc-scroll h5,
+.w95-doc-scroll h6 {
+  position: relative;
+  color: #000;
+  font-family: var(--w95-font);
+  font-weight: 700;
+  line-height: 1.25;
+  scroll-margin-top: 10px;
+}
+
+.w95-doc-scroll h1 {
+  margin: 6px 0 12px;
+  padding-bottom: 6px;
+  font-size: 1.7em;
+  border-bottom: 2px solid #808080;
+}
+
+.w95-doc-scroll h2 {
+  margin: 24px 0 8px;
+  padding-bottom: 4px;
+  font-size: 1.4em;
+  border-bottom: 1px solid #c0c0c0;
+}
+
+.w95-doc-scroll h3 {
+  margin: 18px 0 6px;
+  font-size: 1.16em;
+}
+
+.w95-doc-scroll h4 {
+  margin: 14px 0 5px;
+  font-size: 1.08em;
+}
+
+.w95-doc-scroll h5,
+.w95-doc-scroll h6 {
+  margin: 12px 0 4px;
+  font-size: 1em;
+}
+
+.w95-doc-scroll p {
+  margin: 0 0 11px;
+}
+
+.w95-doc-scroll p,
+.w95-doc-scroll li,
+.w95-doc-scroll td,
+.w95-doc-scroll th {
+  overflow-wrap: break-word;
+}
+
+.w95-doc-scroll iframe {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-height: 320px;
+  border: 2px solid;
+  border-color: #808080 #fff #fff #808080;
+  background: #fff;
+}
+
+.w95-doc-scroll video,
+.w95-doc-scroll audio {
+  max-width: 100%;
+}
+
+.w95-doc-scroll a {
+  color: #0000ee;
+  text-decoration: underline;
+}
+
+.w95-doc-scroll a:visited {
+  color: #551a8b;
+}
+
+.w95-doc-scroll a:hover {
+  color: #ee0000;
+}
+
+.w95-doc-scroll strong {
+  font-weight: 700;
+}
+
+.w95-doc-scroll em {
+  font-style: italic;
+}
+
+.w95-doc-scroll ul,
+.w95-doc-scroll ol {
+  margin: 0 0 12px 24px;
+}
+
+.w95-doc-scroll ul {
+  list-style: square;
+}
+
+.w95-doc-scroll ol {
+  list-style: decimal;
+}
+
+.w95-doc-scroll li {
+  margin: 3px 0;
+}
+
+.w95-doc-scroll li > ul,
+.w95-doc-scroll li > ol {
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.w95-doc-scroll blockquote {
+  margin: 12px 4px;
+  padding: 8px 12px;
+  background: #ffffe1;
+  border-left: 4px solid #808080;
+  color: #000;
+}
+
+.w95-doc-scroll blockquote > :last-child {
+  margin-bottom: 0;
+}
+
+.w95-doc-scroll hr {
+  height: 2px;
+  margin: 18px 0;
+  border: 0;
+  border-top: 1px solid #808080;
+  border-bottom: 1px solid #fff;
+  background: transparent;
+}
+
+.w95-doc-scroll img {
+  max-width: 100%;
+  height: auto;
+  image-rendering: auto;
+}
+
+.w95-doc-scroll code {
+  padding: 1px 3px;
+  background: #f0f0f0;
+  border: 1px solid #d0d0d0;
+  font-family: var(--w95-mono);
+  font-size: 0.92em;
+}
+
+.w95-doc-scroll pre {
+  margin: 10px 0 14px;
+  padding: 8px 10px;
+  overflow: auto;
+  background: #fff;
+  border: 2px solid;
+  border-color: #808080 #fff #fff #808080;
+  font-family: var(--w95-mono);
+  font-size: 0.92em;
+  line-height: 1.45;
+  tab-size: 2;
+}
+
+.w95-doc-scroll pre code {
+  padding: 0;
+  background: transparent;
+  border: 0;
+  font-size: inherit;
+}
+
+.w95-doc-scroll table {
+  width: auto;
+  max-width: 100%;
+  margin: 10px 0 14px;
+  border-collapse: collapse;
+  font-size: 0.92em;
+}
+
+.w95-doc-scroll th,
+.w95-doc-scroll td {
+  padding: 4px 8px;
+  border: 1px solid #808080;
+  text-align: left;
+  vertical-align: top;
+}
+
+.w95-doc-scroll th {
+  background: var(--w95-gray);
+  font-weight: 700;
+}
+
+.w95-doc-scroll .task-list-item {
+  list-style: none;
+}
+
+.w95-doc-scroll .task-list-item input {
+  margin: 0 4px 0 -18px;
+}
+
+.w95-doc-scroll .anchor {
+  color: inherit;
+  text-decoration: none;
+}
+
+.w95-doc-scroll .anchor:hover {
+  color: inherit;
+}
+
+.w95-doc-scroll .callout {
+  margin: 12px 0;
+  padding: 8px 12px;
+  background: #ffffe1;
+  border: 1px solid #808080;
+}
+
+.w95-doc-scroll .callout.tip {
+  background: #e1ffe1;
+}
+
+.w95-doc-scroll .callout.important {
+  background: #ffe1e1;
+}
+
+.w95-doc-scroll .callout > :last-child {
+  margin-bottom: 0;
+}
+
+.w95-doc-scroll .w95-doc-footer {
+  margin-top: 28px;
+  padding-top: 8px;
+  border-top: 1px solid #c0c0c0;
+  color: #666;
+  font-size: 0.85em;
+}
+
+.w95-loading {
+  height: 100%;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #333;
+  font-family: var(--w95-font);
+  font-size: 12px;
+}
+
+.w95-loading .w95-hourglass {
+  width: 16px;
+  height: 16px;
+  position: relative;
+  display: inline-block;
+  border: 1px solid #000;
+  background: #fff;
+}
+
+.w95-loading .w95-hourglass::before,
+.w95-loading .w95-hourglass::after {
+  content: "";
+  position: absolute;
+  left: 2px;
+  width: 10px;
+  height: 6px;
+  background: #000080;
+}
+
+.w95-loading .w95-hourglass::before {
+  top: 1px;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+
+.w95-loading .w95-hourglass::after {
+  bottom: 1px;
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+
+/* --------------------------------------------------------------------------
+   iframe / .exe windows
+   -------------------------------------------------------------------------- */
+
+.w95-app-shell {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--w95-gray);
+}
+
+.w95-app-toolbar {
+  flex: 0 0 auto;
+}
+
+.w95-app-frame {
+  flex: 1 1 auto;
+  min-height: 0;
+  margin: 2px;
+  position: relative;
+  background: #fff;
+  border: 2px solid;
+  border-color: #808080 #fff #fff #808080;
+  overflow: hidden;
+}
+
+.w95-app-window .wb-body iframe {
+  position: relative !important;
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  border: 0;
+  background: #fff;
+}
+
+.w95-app-hint {
+  flex: 0 0 auto;
+  padding: 2px 6px;
+  color: #444;
+  font-size: 11px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.w95-app-hint:empty {
+  display: none;
+}
+
+/* --------------------------------------------------------------------------
+   Dialogs
+   -------------------------------------------------------------------------- */
+
+.w95-dialog {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 12px;
+  background: var(--w95-gray);
+  user-select: none;
+}
+
+.w95-dialog-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 6px 4px 14px;
+  overflow: auto;
+}
+
+.w95-dialog-body > img {
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+
+.w95-dialog-text {
+  flex: 1 1 auto;
+  min-width: 0;
+  line-height: 1.5;
+}
+
+.w95-dialog-text p {
+  margin: 0 0 8px;
+}
+
+.w95-dialog-text p:last-child {
+  margin-bottom: 0;
+}
+
+.w95-dialog-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding-top: 4px;
+}
+
+.w95-dialog-buttons .w95-btn {
+  min-width: 76px;
+}
+
+.w95-dialog fieldset {
+  margin: 4px 0 10px;
+  padding: 8px 10px;
+  border: 2px groove #fff;
+}
+
+.w95-dialog legend {
+  padding: 0 4px;
+}
+
+.w95-dialog label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 4px 0;
+}
+
+.w95-dialog input[type="text"] {
+  width: 100%;
+  height: 22px;
+  padding: 1px 4px;
+  background: #fff;
+  border: 2px solid;
+  border-color: #808080 #fff #fff #808080;
+  font: inherit;
+}
+
+/* --------------------------------------------------------------------------
+   Scrollbars (Chromium / WebKit)
+   -------------------------------------------------------------------------- */
+
+body.w95-mode ::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+}
+
+body.w95-mode ::-webkit-scrollbar-track {
+  background-color: #dfdfdf;
+  background-image: url("assets/icons/track.png");
+  background-repeat: repeat;
+}
+
+body.w95-mode ::-webkit-scrollbar-thumb {
+  background-color: var(--w95-gray);
+  border: 2px solid;
+  border-color: #fff #000 #000 #fff;
+}
+
+body.w95-mode ::-webkit-scrollbar-button {
+  width: 16px;
+  height: 16px;
+  display: block;
+  background-color: var(--w95-gray);
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 2px solid;
+  border-color: #fff #000 #000 #fff;
+}
+
+body.w95-mode ::-webkit-scrollbar-button:vertical:decrement {
+  background-image: url("assets/icons/up.png");
+}
+body.w95-mode ::-webkit-scrollbar-button:vertical:increment {
+  background-image: url("assets/icons/down.png");
+}
+body.w95-mode ::-webkit-scrollbar-button:horizontal:decrement {
+  background-image: url("assets/icons/left.png");
+}
+body.w95-mode ::-webkit-scrollbar-button:horizontal:increment {
+  background-image: url("assets/icons/right.png");
+}
+
+body.w95-mode ::-webkit-scrollbar-button:active {
+  background-position: 1px 1px;
+}
+
+body.w95-mode ::-webkit-scrollbar-corner {
+  background: #c0c0c0;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  body.w95-mode * {
+    scrollbar-color: #c0c0c0 #dfdfdf;
+    scrollbar-width: auto;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Boot / shutdown overlays
+   -------------------------------------------------------------------------- */
+
+#w95-boot {
+  position: fixed;
+  inset: 0;
+  z-index: 200000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  background: #000;
+  color: #c0c0c0;
+  font-family: var(--w95-font);
+  transition: opacity 0.35s ease;
+}
+
+#w95-boot.done {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.w95-boot-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.w95-boot-flag {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  grid-template-columns: 22px 22px;
+  grid-template-rows: 22px 22px;
+  gap: 3px;
+  transform: skewY(-7deg);
+}
+
+.w95-boot-flag i {
+  display: block;
+}
+
+.w95-boot-flag i:nth-child(1) {
+  background: #ff0000;
+}
+.w95-boot-flag i:nth-child(2) {
+  background: #00a000;
+}
+.w95-boot-flag i:nth-child(3) {
+  background: #0000ff;
+}
+.w95-boot-flag i:nth-child(4) {
+  background: #ffff00;
+}
+
+.w95-boot-word {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.w95-boot-word strong {
+  color: #fff;
+  font-family: "Times New Roman", Georgia, serif;
+  font-size: 30px;
+  font-style: italic;
+}
+
+.w95-boot-word span {
+  margin-top: 4px;
+  color: #c0c0c0;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+#w95-boot .w95-boot-note {
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+#w95-boot .w95-boot-note::after {
+  content: "";
+  animation: w95-dots 1.1s steps(4, end) infinite;
+}
+
+@keyframes w95-dots {
+  0% {
+    content: "";
+  }
+  25% {
+    content: ".";
+  }
+  50% {
+    content: "..";
+  }
+  75% {
+    content: "...";
+  }
+}
+
+#w95-shutdown {
+  position: fixed;
+  inset: 0;
+  z-index: 210000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: #000;
+  color: #ffb000;
+  font-family: var(--w95-font);
+  font-size: 22px;
+  text-align: center;
+  cursor: pointer;
+}
+
+#w95-shutdown[hidden] {
+  display: none;
+}
+
+#w95-shutdown span {
+  max-width: 640px;
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   Button normalization
+   Docsify's core theme styles every button[type] and otherwise beats the
+   component rules above on specificity. Re-assert the Win95 look here.
+   -------------------------------------------------------------------------- */
+
+body.w95-mode .w95-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  height: 23px;
+  min-height: 23px;
+  padding: 1px 7px;
+  color: #000;
+  background: var(--w95-gray);
+  border: 2px solid;
+  border-color: #fff #000 #000 #fff;
+  border-radius: 0;
+  box-shadow: inset -1px -1px 0 #808080, inset 1px 1px 0 #dfdfdf;
+  font: inherit;
+  cursor: default;
+}
+
+body.w95-mode .w95-btn:active,
+body.w95-mode .w95-btn.active {
+  padding: 2px 6px 0 8px;
+  border-color: #000 #fff #fff #000;
+  box-shadow: inset 1px 1px 0 #808080;
+}
+
+body.w95-mode .w95-desktop-icon {
+  width: 84px;
+  min-height: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 4px;
+  padding: 4px 2px 3px;
+  color: #fff;
+  background: transparent;
+  border: 1px dotted transparent;
+  border-radius: 0;
+  box-shadow: none;
+  font: inherit;
+  cursor: default;
+}
+
+body.w95-mode .w95-task-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 5px;
+  color: #000;
+  background: var(--w95-gray);
+  border: 2px solid;
+  border-color: #fff #000 #000 #fff;
+  border-radius: 0;
+  box-shadow: none;
+  font: inherit;
+  cursor: default;
+}
+
+body.w95-mode .w95-task-btn.active {
+  padding: 1px 4px 0 6px;
+  border-color: #000 #fff #fff #000;
+}
+
+body.w95-mode .w95-start-item {
+  width: 100%;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 8px;
+  color: #000;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  font: inherit;
+  text-align: left;
+  cursor: default;
+}
+
+body.w95-mode .w95-menu-entry {
+  width: 100%;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 18px 0 8px;
+  color: #000;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  font: inherit;
+  text-align: left;
+  cursor: default;
+}
+
+body.w95-mode .w95-menu-entry:hover:not([disabled]),
+body.w95-mode .w95-menu-entry:focus-visible:not([disabled]),
+body.w95-mode .w95-start-item:hover,
+body.w95-mode .w95-start-item:focus-visible {
+  color: #fff;
+  background: var(--w95-navy);
+}
+
+body.w95-mode .w95-dialog-buttons .w95-btn {
+  min-width: 76px;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 760px) {
+  :root {
+    --w95-taskbar: 28px;
+  }
+
+  .w95-tree-toggle {
+    width: 11px;
+    height: 11px;
+    flex-basis: 11px;
+    line-height: 9px;
+  }
+
+  .w95-file-table col.w95-col-type,
+  .w95-file-table col.w95-col-size {
+    width: 0;
+  }
+
+  .w95-file-table {
+    min-width: 0;
+  }
+
+  .w95-file-table col.w95-col-name {
+    width: auto;
+  }
+
+  .w95-file-table th:nth-child(2),
+  .w95-file-table td:nth-child(2),
+  .w95-file-table th:nth-child(3),
+  .w95-file-table td:nth-child(3) {
+    display: none;
+  }
+
+  .w95-explorer .w95-toolbar .w95-btn span {
+    display: none;
+  }
+
+  .w95-explorer .w95-toolbar .w95-address-label {
+    display: none;
+  }
+
+  .w95-doc-scroll {
+    padding: 10px 12px 18px;
+    font-size: 13px;
+  }
+
+  .w95-desktop-icon {
+    width: 72px;
+  }
+
+  .w95-dialog input[type="text"] {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  #w95-icons {
+    gap: 0;
+  }
+
+  .w95-desktop-icon {
+    width: 68px;
+    min-height: 66px;
+  }
+
+  .w95-tree-pane {
+    flex-basis: 112px;
+  }
+
+  .w95-file-grid {
+    grid-template-columns: repeat(auto-fill, minmax(78px, 1fr));
+    padding: 5px;
+  }
+
+  .w95-status-cell:last-child {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.w95-mode *,
+  body.w95-mode *::before,
+  body.w95-mode *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

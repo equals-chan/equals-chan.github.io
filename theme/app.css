@@ -1,0 +1,171 @@
+/* Styles for standalone pages embedded inside a Win95 Docsify .exe window. */
+
+:root {
+  --app-gray: #c0c0c0;
+  --app-navy: #000080;
+  --app-teal: #008080;
+  --app-font: "MS Sans Serif", "Microsoft Sans Serif", Tahoma, Geneva,
+    "SimSun", "Songti SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --app-mono: "Courier New", "Lucida Console", "SimSun", monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body.w95-app-page {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--app-gray);
+  color: #000;
+  font-family: var(--app-font);
+  font-size: 12px;
+  user-select: none;
+}
+
+.app-menubar {
+  flex: 0 0 20px;
+  display: flex;
+  align-items: stretch;
+  padding: 0 2px;
+  background: var(--app-gray);
+}
+
+.app-menubar span {
+  display: flex;
+  align-items: center;
+  padding: 0 6px;
+  cursor: default;
+}
+
+.app-menubar span:hover {
+  background: var(--app-navy);
+  color: #fff;
+}
+
+.app-toolbar {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #808080;
+}
+
+.app-btn {
+  min-height: 23px;
+  padding: 1px 8px;
+  background: var(--app-gray);
+  border: 2px solid;
+  border-color: #fff #000 #000 #fff;
+  box-shadow: inset -1px -1px 0 #808080, inset 1px 1px 0 #dfdfdf;
+  font: inherit;
+  cursor: default;
+}
+
+.app-btn:active {
+  padding: 2px 7px 0 9px;
+  border-color: #000 #fff #fff #000;
+  box-shadow: inset 1px 1px 0 #808080;
+}
+
+.app-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 2px;
+}
+
+.app-textarea {
+  flex: 1 1 auto;
+  width: 100%;
+  min-height: 0;
+  resize: none;
+  padding: 4px;
+  background: #fff;
+  border: 2px solid;
+  border-color: #808080 #fff #fff #808080;
+  font-family: var(--app-mono);
+  font-size: 12px;
+  line-height: 1.45;
+  color: #000;
+  user-select: text;
+}
+
+.app-textarea:focus {
+  outline: none;
+}
+
+.app-statusbar {
+  flex: 0 0 22px;
+  display: flex;
+  gap: 2px;
+  padding: 2px;
+  background: var(--app-gray);
+  font-size: 11px;
+}
+
+.app-status-cell {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 5px;
+  background: var(--app-gray);
+  border: 1px solid;
+  border-color: #808080 #fff #fff #808080;
+  white-space: nowrap;
+}
+
+.app-status-cell:first-child {
+  flex: 1 1 auto;
+}
+
+.app-status-cell:last-child {
+  flex: 0 0 auto;
+}
+
+.app-center {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 24px;
+  background: var(--app-teal);
+  color: #fff;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.app-center h1 {
+  margin: 0;
+  font-size: 22px;
+  color: #fff;
+  text-shadow: 1px 1px 0 #000;
+}
+
+.app-center p {
+  max-width: 480px;
+  margin: 0;
+}
+
+.app-center .app-btn {
+  color: #000;
+}
+
+@media (max-width: 760px) {
+  .app-textarea {
+    font-size: 16px;
+  }
+}
