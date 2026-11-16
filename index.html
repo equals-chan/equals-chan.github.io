@@ -41,6 +41,8 @@
           icons: {
             notepad: 'notepad.svg',
             browser: 'browser.svg',
+            // 侧边栏里 ':class=w95-icon-track' 会按这个 key 找图标
+            track: 'track.png',
           },
           desktop: [
             {
@@ -53,6 +55,16 @@
               icon: 'file',
               action: 'doc',
               pathKey: '/',
+            },
+            {
+              title: '盯盘看板',
+              icon: 'track.png',
+              action: 'app',
+              url: 'docs/apps/stock-board.html',
+              // 看板是横向多列的，窗口要宽；主题会按视口自动夹取，
+              // 所以这里给一个大值即可，小屏不会溢出
+              width: 1440,
+              height: 900,
             },
             {
               title: 'Notepad.exe',
@@ -81,6 +93,13 @@
             }
           ],
           apps: [
+            {
+              title: '盯盘看板',
+              url: 'docs/apps/stock-board.html',
+              icon: 'track.png',
+              width: 1440,
+              height: 900,
+            },
             {
               title: 'Notepad',
               url: 'docs/apps/notepad.html',

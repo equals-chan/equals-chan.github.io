@@ -19,6 +19,7 @@
 
 - 程序
 
+  - [盯盘看板](apps/stock-board.html ':class=w95-exe :class=w95-icon-track')
   - [记事本](apps/notepad.html ':class=w95-exe :class=w95-icon-notepad')
   - [Example.com](https://example.com ':class=w95-icon-browser')
   - [Docsify 官网](https://docsify.js.org ':class=w95-icon-browser')
