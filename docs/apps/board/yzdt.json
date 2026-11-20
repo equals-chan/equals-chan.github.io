@@ -3,7 +3,7 @@
   "title": "昨日涨跌停",
   "note": "由 stock-web backend/jobs/board_export.py 生成，勿手改",
   "defaultCollapsed": false,
-  "layout": "columns",
+  "layout": "flow",
   "columns": [
     {
       "title": "3连板",
@@ -69,7 +69,7 @@
     },
     {
       "title": "首板",
-      "collapsed": false,
+      "collapsed": true,
       "stocks": [
         {
           "code": "002242",
@@ -242,36 +242,6 @@
           "pctChange": 10.0
         },
         {
-          "code": "600530",
-          "name": "ST交昂",
-          "tag": "首板",
-          "tagKind": "up",
-          "streak": 1,
-          "sealType": "turnover",
-          "amount": 1.16,
-          "pctChange": 9.98
-        },
-        {
-          "code": "000610",
-          "name": "*ST西旅",
-          "tag": "首板",
-          "tagKind": "up",
-          "streak": 1,
-          "sealType": "turnover",
-          "amount": 0.62,
-          "pctChange": 10.06
-        },
-        {
-          "code": "301030",
-          "name": "*ST仕净",
-          "tag": "首板",
-          "tagKind": "up",
-          "streak": 1,
-          "sealType": "turnover",
-          "amount": 0.59,
-          "pctChange": 20.0
-        },
-        {
           "code": "603813",
           "name": "原尚股份",
           "tag": "首板",
@@ -290,16 +260,6 @@
           "sealType": "one",
           "amount": 0.48,
           "pctChange": 9.93
-        },
-        {
-          "code": "000838",
-          "name": "*ST发展",
-          "tag": "一字板",
-          "tagKind": "up",
-          "streak": 1,
-          "sealType": "one",
-          "amount": 0.11,
-          "pctChange": 10.09
         }
       ]
     },
@@ -336,26 +296,6 @@
           "sealType": "turnover",
           "amount": 3.35,
           "pctChange": -9.98
-        },
-        {
-          "code": "600180",
-          "name": "*ST瑞茂",
-          "tag": "4连跌停",
-          "tagKind": "down",
-          "streak": 4,
-          "sealType": "t",
-          "amount": 0.42,
-          "pctChange": -10.29
-        },
-        {
-          "code": "000826",
-          "name": "*ST启环",
-          "tag": "4连跌停",
-          "tagKind": "down",
-          "streak": 4,
-          "sealType": "one",
-          "amount": 0.14,
-          "pctChange": -10.0
         }
       ]
     },
@@ -1076,16 +1016,6 @@
           "pctChange": -9.9
         },
         {
-          "code": "600537",
-          "name": "*ST亿晶",
-          "tag": "跌停",
-          "tagKind": "down",
-          "streak": 1,
-          "sealType": "turnover",
-          "amount": 1.03,
-          "pctChange": -9.89
-        },
-        {
           "code": "603098",
           "name": "森特股份",
           "tag": "跌停",
@@ -1116,16 +1046,6 @@
           "pctChange": -10.0
         },
         {
-          "code": "603398",
-          "name": "*ST沐邦",
-          "tag": "跌停",
-          "tagKind": "down",
-          "streak": 1,
-          "sealType": "turnover",
-          "amount": 0.76,
-          "pctChange": -10.04
-        },
-        {
           "code": "603838",
           "name": "四通股份",
           "tag": "跌停",
@@ -1134,16 +1054,6 @@
           "sealType": "turnover",
           "amount": 0.67,
           "pctChange": -9.99
-        },
-        {
-          "code": "002581",
-          "name": "*ST未名",
-          "tag": "跌停",
-          "tagKind": "down",
-          "streak": 1,
-          "sealType": "turnover",
-          "amount": 0.25,
-          "pctChange": -9.93
         }
       ]
     }
