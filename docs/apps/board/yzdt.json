@@ -1,5 +1,5 @@
 {
-  "date": "20261125",
+  "date": "20261126",
   "title": "昨日涨跌停",
   "note": "由 stock-web backend/jobs/board_export.py 生成，勿手改",
   "defaultCollapsed": false,
@@ -10,13 +10,13 @@
       "collapsed": false,
       "stocks": [
         {
-          "code": "002579",
-          "name": "中京电子",
+          "code": "603960",
+          "name": "克来机电",
           "tag": "5连板",
           "tagKind": "up",
           "streak": 5,
           "sealType": "turnover",
-          "amount": 41.87,
+          "amount": 13.05,
           "pctChange": 10.0
         }
       ]
@@ -26,24 +26,14 @@
       "collapsed": false,
       "stocks": [
         {
-          "code": "002548",
-          "name": "金新农",
+          "code": "600814",
+          "name": "杭州解百",
           "tag": "T字4板",
           "tagKind": "up",
           "streak": 4,
           "sealType": "t",
-          "amount": 8.75,
-          "pctChange": 10.11
-        },
-        {
-          "code": "603960",
-          "name": "克来机电",
-          "tag": "一字4板",
-          "tagKind": "up",
-          "streak": 4,
-          "sealType": "one",
-          "amount": 0.71,
-          "pctChange": 9.99
+          "amount": 14.93,
+          "pctChange": 10.06
         }
       ]
     },
@@ -52,64 +42,44 @@
       "collapsed": false,
       "stocks": [
         {
-          "code": "002242",
-          "name": "九阳股份",
+          "code": "600722",
+          "name": "金牛化工",
           "tag": "3连板",
           "tagKind": "up",
           "streak": 3,
           "sealType": "turnover",
-          "amount": 41.09,
-          "pctChange": 10.01
+          "amount": 15.03,
+          "pctChange": 10.04
         },
         {
-          "code": "002122",
-          "name": "汇洲智能",
+          "code": "603030",
+          "name": "全筑股份",
+          "tag": "3连板",
+          "tagKind": "up",
+          "streak": 3,
+          "sealType": "turnover",
+          "amount": 8.97,
+          "pctChange": 9.96
+        },
+        {
+          "code": "002651",
+          "name": "利君股份",
           "tag": "一字3板",
           "tagKind": "up",
           "streak": 3,
           "sealType": "one",
-          "amount": 8.1,
-          "pctChange": 10.12
+          "amount": 0.97,
+          "pctChange": 10.0
         },
         {
-          "code": "002164",
-          "name": "宁波东力",
-          "tag": "3连板",
+          "code": "002872",
+          "name": "天圣制药",
+          "tag": "一字3板",
           "tagKind": "up",
           "streak": 3,
-          "sealType": "turnover",
-          "amount": 8.09,
-          "pctChange": 9.98
-        },
-        {
-          "code": "300703",
-          "name": "创源股份",
-          "tag": "3连板",
-          "tagKind": "up",
-          "streak": 3,
-          "sealType": "turnover",
-          "amount": 6.95,
-          "pctChange": 20.03
-        },
-        {
-          "code": "603926",
-          "name": "铁流股份",
-          "tag": "3连板",
-          "tagKind": "up",
-          "streak": 3,
-          "sealType": "turnover",
-          "amount": 4.7,
-          "pctChange": 9.98
-        },
-        {
-          "code": "600814",
-          "name": "杭州解百",
-          "tag": "3连板",
-          "tagKind": "up",
-          "streak": 3,
-          "sealType": "turnover",
-          "amount": 3.32,
-          "pctChange": 10.01
+          "sealType": "one",
+          "amount": 0.27,
+          "pctChange": 10.0
         }
       ]
     },
@@ -118,54 +88,94 @@
       "collapsed": false,
       "stocks": [
         {
-          "code": "600722",
-          "name": "金牛化工",
+          "code": "600103",
+          "name": "青山纸业",
           "tag": "2连板",
           "tagKind": "up",
           "streak": 2,
           "sealType": "turnover",
-          "amount": 19.13,
-          "pctChange": 10.04
+          "amount": 30.48,
+          "pctChange": 10.05
         },
         {
-          "code": "603360",
-          "name": "百傲化学",
+          "code": "600467",
+          "name": "好当家",
           "tag": "2连板",
           "tagKind": "up",
           "streak": 2,
           "sealType": "turnover",
-          "amount": 5.81,
+          "amount": 15.48,
           "pctChange": 10.0
         },
         {
-          "code": "603030",
-          "name": "全筑股份",
+          "code": "600227",
+          "name": "赤天化",
+          "tag": "2连板",
+          "tagKind": "up",
+          "streak": 2,
+          "sealType": "turnover",
+          "amount": 11.82,
+          "pctChange": 9.91
+        },
+        {
+          "code": "603324",
+          "name": "盛剑科技",
+          "tag": "2连板",
+          "tagKind": "up",
+          "streak": 2,
+          "sealType": "turnover",
+          "amount": 10.85,
+          "pctChange": 10.01
+        },
+        {
+          "code": "603708",
+          "name": "家家悦",
+          "tag": "2连板",
+          "tagKind": "up",
+          "streak": 2,
+          "sealType": "turnover",
+          "amount": 5.92,
+          "pctChange": 10.02
+        },
+        {
+          "code": "002197",
+          "name": "证通电子",
           "tag": "T字2板",
           "tagKind": "up",
           "streak": 2,
           "sealType": "t",
-          "amount": 3.88,
-          "pctChange": 10.13
+          "amount": 5.7,
+          "pctChange": 9.98
         },
         {
-          "code": "002651",
-          "name": "利君股份",
+          "code": "600280",
+          "name": "中央商场",
+          "tag": "T字2板",
+          "tagKind": "up",
+          "streak": 2,
+          "sealType": "t",
+          "amount": 4.92,
+          "pctChange": 9.93
+        },
+        {
+          "code": "600229",
+          "name": "城市传媒",
           "tag": "2连板",
           "tagKind": "up",
           "streak": 2,
           "sealType": "turnover",
-          "amount": 3.75,
-          "pctChange": 10.03
+          "amount": 3.35,
+          "pctChange": 9.98
         },
         {
-          "code": "002872",
-          "name": "天圣制药",
-          "tag": "一字2板",
+          "code": "002144",
+          "name": "宏达高科",
+          "tag": "2连板",
           "tagKind": "up",
           "streak": 2,
-          "sealType": "one",
-          "amount": 0.22,
-          "pctChange": 10.08
+          "sealType": "turnover",
+          "amount": 1.83,
+          "pctChange": 10.02
         }
       ]
     },
@@ -174,374 +184,504 @@
       "collapsed": true,
       "stocks": [
         {
-          "code": "600103",
-          "name": "青山纸业",
+          "code": "002086",
+          "name": "东方海洋",
           "tag": "首板",
           "tagKind": "up",
           "streak": 1,
           "sealType": "turnover",
-          "amount": 24.84,
-          "pctChange": 9.88
+          "amount": 30.97,
+          "pctChange": 9.91
         },
         {
-          "code": "002642",
-          "name": "荣联科技",
+          "code": "000530",
+          "name": "冰山冷热",
           "tag": "首板",
           "tagKind": "up",
           "streak": 1,
           "sealType": "turnover",
-          "amount": 16.53,
+          "amount": 27.3,
+          "pctChange": 10.0
+        },
+        {
+          "code": "300324",
+          "name": "旋极信息",
+          "tag": "首板",
+          "tagKind": "up",
+          "streak": 1,
+          "sealType": "turnover",
+          "amount": 25.31,
+          "pctChange": 20.0
+        },
+        {
+          "code": "002148",
+          "name": "北纬科技",
+          "tag": "首板",
+          "tagKind": "up",
+          "streak": 1,
+          "sealType": "turnover",
+          "amount": 25.03,
+          "pctChange": 10.03
+        },
+        {
+          "code": "000678",
+          "name": "襄阳轴承",
+          "tag": "首板",
+          "tagKind": "up",
+          "streak": 1,
+          "sealType": "turnover",
+          "amount": 24.67,
+          "pctChange": 10.02
+        },
+        {
+          "code": "002261",
+          "name": "拓维信息",
+          "tag": "首板",
+          "tagKind": "up",
+          "streak": 1,
+          "sealType": "turnover",
+          "amount": 24.49,
+          "pctChange": 10.03
+        },
+        {
+          "code": "002815",
+          "name": "崇达技术",
+          "tag": "首板",
+          "tagKind": "up",
+          "streak": 1,
+          "sealType": "turnover",
+          "amount": 21.09,
+          "pctChange": 10.02
+        },
+        {
+          "code": "603118",
+          "name": "共进股份",
+          "tag": "首板",
+          "tagKind": "up",
+          "streak": 1,
+          "sealType": "turnover",
+          "amount": 15.06,
+          "pctChange": 10.04
+        },
+        {
+          "code": "000158",
+          "name": "常山北明",
+          "tag": "首板",
+          "tagKind": "up",
+          "streak": 1,
+          "sealType": "turnover",
+          "amount": 13.09,
+          "pctChange": 9.98
+        },
+        {
+          "code": "600127",
+          "name": "金健米业",
+          "tag": "首板",
+          "tagKind": "up",
+          "streak": 1,
+          "sealType": "turnover",
+          "amount": 12.52,
+          "pctChange": 10.06
+        },
+        {
+          "code": "000603",
+          "name": "盛达资源",
+          "tag": "首板",
+          "tagKind": "up",
+          "streak": 1,
+          "sealType": "turnover",
+          "amount": 10.73,
+          "pctChange": 10.0
+        },
+        {
+          "code": "002081",
+          "name": "金 螳 螂",
+          "tag": "首板",
+          "tagKind": "up",
+          "streak": 1,
+          "sealType": "turnover",
+          "amount": 10.25,
           "pctChange": 10.05
         },
         {
-          "code": "600467",
-          "name": "好当家",
+          "code": "002639",
+          "name": "雪人集团",
           "tag": "首板",
           "tagKind": "up",
           "streak": 1,
           "sealType": "turnover",
-          "amount": 9.98,
-          "pctChange": 10.09
-        },
-        {
-          "code": "603324",
-          "name": "盛剑科技",
-          "tag": "首板",
-          "tagKind": "up",
-          "streak": 1,
-          "sealType": "turnover",
-          "amount": 9.97,
-          "pctChange": 9.99
-        },
-        {
-          "code": "605577",
-          "name": "龙版传媒",
-          "tag": "首板",
-          "tagKind": "up",
-          "streak": 1,
-          "sealType": "turnover",
-          "amount": 9.81,
-          "pctChange": 9.99
-        },
-        {
-          "code": "600227",
-          "name": "赤天化",
-          "tag": "首板",
-          "tagKind": "up",
-          "streak": 1,
-          "sealType": "turnover",
-          "amount": 8.56,
-          "pctChange": 9.86
-        },
-        {
-          "code": "002275",
-          "name": "桂林三金",
-          "tag": "首板",
-          "tagKind": "up",
-          "streak": 1,
-          "sealType": "turnover",
-          "amount": 6.68,
+          "amount": 9.61,
           "pctChange": 10.03
         },
         {
-          "code": "603887",
-          "name": "城地香江",
+          "code": "000889",
+          "name": "中嘉博创",
           "tag": "首板",
           "tagKind": "up",
           "streak": 1,
           "sealType": "turnover",
-          "amount": 5.36,
+          "amount": 8.94,
+          "pctChange": 10.14
+        },
+        {
+          "code": "002246",
+          "name": "北化股份",
+          "tag": "首板",
+          "tagKind": "up",
+          "streak": 1,
+          "sealType": "turnover",
+          "amount": 7.5,
           "pctChange": 9.99
         },
         {
-          "code": "603122",
-          "name": "合富中国",
+          "code": "002077",
+          "name": "大港股份",
           "tag": "首板",
           "tagKind": "up",
           "streak": 1,
           "sealType": "turnover",
-          "amount": 5.03,
+          "amount": 7.27,
+          "pctChange": 9.97
+        },
+        {
+          "code": "002141",
+          "name": "贤丰控股",
+          "tag": "首板",
+          "tagKind": "up",
+          "streak": 1,
+          "sealType": "turnover",
+          "amount": 7.15,
+          "pctChange": 9.95
+        },
+        {
+          "code": "002226",
+          "name": "江南化工",
+          "tag": "首板",
+          "tagKind": "up",
+          "streak": 1,
+          "sealType": "turnover",
+          "amount": 6.51,
+          "pctChange": 10.04
+        },
+        {
+          "code": "600499",
+          "name": "科达制造",
+          "tag": "首板",
+          "tagKind": "up",
+          "streak": 1,
+          "sealType": "turnover",
+          "amount": 6.49,
           "pctChange": 10.03
         },
         {
-          "code": "601086",
-          "name": "国芳集团",
+          "code": "603687",
+          "name": "大胜达",
           "tag": "首板",
           "tagKind": "up",
           "streak": 1,
           "sealType": "turnover",
-          "amount": 5.01,
-          "pctChange": 10.03
+          "amount": 6.47,
+          "pctChange": 10.01
         },
         {
-          "code": "000756",
-          "name": "新华制药",
+          "code": "605058",
+          "name": "澳弘电子",
           "tag": "首板",
           "tagKind": "up",
           "streak": 1,
           "sealType": "turnover",
-          "amount": 4.07,
+          "amount": 5.29,
+          "pctChange": 9.99
+        },
+        {
+          "code": "603278",
+          "name": "大业股份",
+          "tag": "首板",
+          "tagKind": "up",
+          "streak": 1,
+          "sealType": "turnover",
+          "amount": 5.28,
+          "pctChange": 10.01
+        },
+        {
+          "code": "002298",
+          "name": "中电鑫龙",
+          "tag": "首板",
+          "tagKind": "up",
+          "streak": 1,
+          "sealType": "turnover",
+          "amount": 3.6,
+          "pctChange": 9.98
+        },
+        {
+          "code": "600629",
+          "name": "华建集团",
+          "tag": "首板",
+          "tagKind": "up",
+          "streak": 1,
+          "sealType": "turnover",
+          "amount": 3.59,
+          "pctChange": 10.01
+        },
+        {
+          "code": "600691",
+          "name": "潞化科技",
+          "tag": "首板",
+          "tagKind": "up",
+          "streak": 1,
+          "sealType": "turnover",
+          "amount": 3.29,
+          "pctChange": 9.91
+        },
+        {
+          "code": "301190",
+          "name": "善水科技",
+          "tag": "首板",
+          "tagKind": "up",
+          "streak": 1,
+          "sealType": "turnover",
+          "amount": 3.2,
+          "pctChange": 20.0
+        },
+        {
+          "code": "002470",
+          "name": "金正大",
+          "tag": "首板",
+          "tagKind": "up",
+          "streak": 1,
+          "sealType": "turnover",
+          "amount": 3.19,
+          "pctChange": 10.06
+        },
+        {
+          "code": "603166",
+          "name": "福达股份",
+          "tag": "首板",
+          "tagKind": "up",
+          "streak": 1,
+          "sealType": "turnover",
+          "amount": 2.96,
           "pctChange": 10.05
         },
         {
-          "code": "600829",
-          "name": "人民同泰",
-          "tag": "首板",
-          "tagKind": "up",
-          "streak": 1,
-          "sealType": "turnover",
-          "amount": 3.83,
-          "pctChange": 9.96
-        },
-        {
-          "code": "301066",
-          "name": "万事利",
-          "tag": "首板",
-          "tagKind": "up",
-          "streak": 1,
-          "sealType": "turnover",
-          "amount": 3.56,
-          "pctChange": 19.96
-        },
-        {
-          "code": "300086",
-          "name": "康芝药业",
-          "tag": "首板",
-          "tagKind": "up",
-          "streak": 1,
-          "sealType": "turnover",
-          "amount": 3.12,
-          "pctChange": 20.05
-        },
-        {
-          "code": "002038",
-          "name": "双鹭药业",
+          "code": "600628",
+          "name": "新世界",
           "tag": "首板",
           "tagKind": "up",
           "streak": 1,
           "sealType": "turnover",
           "amount": 2.83,
-          "pctChange": 10.11
+          "pctChange": 10.0
         },
         {
-          "code": "002197",
-          "name": "证通电子",
+          "code": "002199",
+          "name": "东晶电子",
           "tag": "首板",
           "tagKind": "up",
           "streak": 1,
           "sealType": "turnover",
-          "amount": 2.5,
-          "pctChange": 9.95
+          "amount": 2.57,
+          "pctChange": 10.04
         },
         {
-          "code": "600229",
-          "name": "城市传媒",
+          "code": "600520",
+          "name": "三佳科技",
           "tag": "首板",
           "tagKind": "up",
           "streak": 1,
           "sealType": "turnover",
-          "amount": 2.36,
-          "pctChange": 9.96
+          "amount": 2.53,
+          "pctChange": 9.98
         },
         {
-          "code": "600088",
-          "name": "中视传媒",
+          "code": "600963",
+          "name": "岳阳林纸",
           "tag": "首板",
           "tagKind": "up",
           "streak": 1,
           "sealType": "turnover",
-          "amount": 2.29,
+          "amount": 2.41,
+          "pctChange": 10.09
+        },
+        {
+          "code": "000993",
+          "name": "闽东电力",
+          "tag": "首板",
+          "tagKind": "up",
+          "streak": 1,
+          "sealType": "turnover",
+          "amount": 2.38,
           "pctChange": 10.01
         },
         {
-          "code": "301211",
-          "name": "亨迪药业",
+          "code": "002453",
+          "name": "华软科技",
           "tag": "首板",
           "tagKind": "up",
           "streak": 1,
           "sealType": "turnover",
-          "amount": 2.09,
-          "pctChange": 19.98
+          "amount": 2.25,
+          "pctChange": 10.12
         },
         {
-          "code": "002861",
-          "name": "瀛通通讯",
+          "code": "603203",
+          "name": "快克智能",
           "tag": "首板",
           "tagKind": "up",
           "streak": 1,
           "sealType": "turnover",
-          "amount": 1.87,
-          "pctChange": 10.03
+          "amount": 2.2,
+          "pctChange": 9.99
         },
         {
-          "code": "600280",
-          "name": "中央商场",
+          "code": "002565",
+          "name": "顺灏股份",
+          "tag": "一字板",
+          "tagKind": "up",
+          "streak": 1,
+          "sealType": "one",
+          "amount": 2.12,
+          "pctChange": 10.05
+        },
+        {
+          "code": "603586",
+          "name": "金麒麟",
+          "tag": "首板",
+          "tagKind": "up",
+          "streak": 1,
+          "sealType": "turnover",
+          "amount": 2.03,
+          "pctChange": 10.0
+        },
+        {
+          "code": "603051",
+          "name": "鹿山新材",
+          "tag": "首板",
+          "tagKind": "up",
+          "streak": 1,
+          "sealType": "turnover",
+          "amount": 1.98,
+          "pctChange": 10.0
+        },
+        {
+          "code": "002949",
+          "name": "华阳国际",
+          "tag": "首板",
+          "tagKind": "up",
+          "streak": 1,
+          "sealType": "turnover",
+          "amount": 1.93,
+          "pctChange": 10.02
+        },
+        {
+          "code": "603386",
+          "name": "骏亚科技",
+          "tag": "首板",
+          "tagKind": "up",
+          "streak": 1,
+          "sealType": "turnover",
+          "amount": 1.82,
+          "pctChange": 10.0
+        },
+        {
+          "code": "603109",
+          "name": "神驰机电",
           "tag": "首板",
           "tagKind": "up",
           "streak": 1,
           "sealType": "turnover",
           "amount": 1.8,
-          "pctChange": 10.16
+          "pctChange": 10.03
         },
         {
-          "code": "002145",
-          "name": "钛能化学",
+          "code": "301059",
+          "name": "金三江",
           "tag": "首板",
           "tagKind": "up",
           "streak": 1,
           "sealType": "turnover",
-          "amount": 1.74,
-          "pctChange": 10.06
+          "amount": 1.67,
+          "pctChange": 20.04
         },
         {
-          "code": "600223",
-          "name": "福瑞达",
+          "code": "003040",
+          "name": "楚天龙",
           "tag": "首板",
           "tagKind": "up",
           "streak": 1,
           "sealType": "turnover",
-          "amount": 1.51,
-          "pctChange": 10.02
+          "amount": 1.5,
+          "pctChange": 10.04
         },
         {
-          "code": "301089",
-          "name": "拓新药业",
+          "code": "000798",
+          "name": "中水渔业",
           "tag": "首板",
           "tagKind": "up",
           "streak": 1,
           "sealType": "turnover",
-          "amount": 1.45,
-          "pctChange": 20.02
+          "amount": 1.17,
+          "pctChange": 10.05
         },
         {
-          "code": "002069",
-          "name": "獐子岛",
-          "tag": "首板",
-          "tagKind": "up",
-          "streak": 1,
-          "sealType": "turnover",
-          "amount": 1.44,
-          "pctChange": 9.94
-        },
-        {
-          "code": "000593",
-          "name": "德龙汇能",
-          "tag": "首板",
-          "tagKind": "up",
-          "streak": 1,
-          "sealType": "turnover",
-          "amount": 1.21,
-          "pctChange": 10.02
-        },
-        {
-          "code": "002820",
-          "name": "桂发祥",
-          "tag": "首板",
-          "tagKind": "up",
-          "streak": 1,
-          "sealType": "turnover",
-          "amount": 1.16,
-          "pctChange": 10.06
-        },
-        {
-          "code": "002728",
-          "name": "特一药业",
-          "tag": "首板",
-          "tagKind": "up",
-          "streak": 1,
-          "sealType": "turnover",
-          "amount": 1.14,
-          "pctChange": 10.01
-        },
-        {
-          "code": "002864",
-          "name": "盘龙药业",
+          "code": "603373",
+          "name": "安邦护卫",
           "tag": "首板",
           "tagKind": "up",
           "streak": 1,
           "sealType": "turnover",
           "amount": 1.1,
-          "pctChange": 10.03
-        },
-        {
-          "code": "002144",
-          "name": "宏达高科",
-          "tag": "首板",
-          "tagKind": "up",
-          "streak": 1,
-          "sealType": "turnover",
-          "amount": 1.02,
-          "pctChange": 10.06
-        },
-        {
-          "code": "002900",
-          "name": "哈三联",
-          "tag": "首板",
-          "tagKind": "up",
-          "streak": 1,
-          "sealType": "turnover",
-          "amount": 0.8,
           "pctChange": 10.0
         },
         {
-          "code": "603708",
-          "name": "家家悦",
+          "code": "000912",
+          "name": "泸天化",
           "tag": "首板",
           "tagKind": "up",
           "streak": 1,
           "sealType": "turnover",
-          "amount": 0.78,
-          "pctChange": 10.0
+          "amount": 0.96,
+          "pctChange": 10.1
         },
         {
-          "code": "605136",
-          "name": "丽人丽妆",
-          "tag": "首板",
+          "code": "603703",
+          "name": "盛洋科技",
+          "tag": "一字板",
           "tagKind": "up",
           "streak": 1,
-          "sealType": "turnover",
-          "amount": 0.66,
-          "pctChange": 9.94
+          "sealType": "one",
+          "amount": 0.76,
+          "pctChange": 9.95
         },
         {
-          "code": "000702",
-          "name": "正虹科技",
-          "tag": "首板",
+          "code": "603396",
+          "name": "金辰股份",
+          "tag": "一字板",
           "tagKind": "up",
           "streak": 1,
-          "sealType": "turnover",
-          "amount": 0.63,
-          "pctChange": 9.91
+          "sealType": "one",
+          "amount": 0.51,
+          "pctChange": 10.02
         },
         {
-          "code": "002480",
-          "name": "新筑股份",
-          "tag": "首板",
+          "code": "600185",
+          "name": "珠免集团",
+          "tag": "一字板",
           "tagKind": "up",
           "streak": 1,
-          "sealType": "turnover",
-          "amount": 0.55,
-          "pctChange": 9.94
+          "sealType": "one",
+          "amount": 0.43,
+          "pctChange": 10.05
         },
         {
-          "code": "000908",
-          "name": "石药景峰",
-          "tag": "首板",
+          "code": "600567",
+          "name": "山鹰国际",
+          "tag": "一字板",
           "tagKind": "up",
           "streak": 1,
-          "sealType": "turnover",
-          "amount": 0.52,
-          "pctChange": 10.07
-        },
-        {
-          "code": "603069",
-          "name": "海汽集团",
-          "tag": "首板",
-          "tagKind": "up",
-          "streak": 1,
-          "sealType": "turnover",
-          "amount": 0.34,
-          "pctChange": 9.98
+          "sealType": "one",
+          "amount": 0.36,
+          "pctChange": 9.78
         }
       ]
     },
@@ -550,490 +690,70 @@
       "collapsed": false,
       "stocks": [
         {
-          "code": "003038",
-          "name": "鑫铂股份",
-          "tag": "2连跌停",
-          "tagKind": "down",
-          "streak": 2,
-          "sealType": "turnover",
-          "amount": 1.96,
-          "pctChange": -10.04
-        },
-        {
-          "code": "000635",
-          "name": "英 力 特",
+          "code": "603391",
+          "name": "力聚热能",
           "tag": "2连跌停",
           "tagKind": "down",
           "streak": 2,
           "sealType": "one",
-          "amount": 0.13,
+          "amount": 0.53,
           "pctChange": -10.0
         }
       ]
     },
     {
       "title": "跌停",
-      "collapsed": true,
+      "collapsed": false,
       "stocks": [
         {
-          "code": "600715",
-          "name": "文投控股",
+          "code": "002685",
+          "name": "华东重机",
           "tag": "跌停",
           "tagKind": "down",
           "streak": 1,
-          "sealType": "turnover",
-          "amount": 25.03,
-          "pctChange": -9.87
-        },
-        {
-          "code": "600641",
-          "name": "先导基电",
-          "tag": "跌停",
-          "tagKind": "down",
-          "streak": 1,
-          "sealType": "turnover",
-          "amount": 20.62,
-          "pctChange": -9.99
-        },
-        {
-          "code": "600261",
-          "name": "阳光照明",
-          "tag": "跌停",
-          "tagKind": "down",
-          "streak": 1,
-          "sealType": "turnover",
-          "amount": 14.86,
-          "pctChange": -9.9
-        },
-        {
-          "code": "603366",
-          "name": "日出东方",
-          "tag": "跌停",
-          "tagKind": "down",
-          "streak": 1,
-          "sealType": "turnover",
-          "amount": 12.55,
-          "pctChange": -9.99
-        },
-        {
-          "code": "603078",
-          "name": "江化微",
-          "tag": "跌停",
-          "tagKind": "down",
-          "streak": 1,
-          "sealType": "turnover",
-          "amount": 12.17,
-          "pctChange": -9.99
-        },
-        {
-          "code": "002929",
-          "name": "润建股份",
-          "tag": "跌停",
-          "tagKind": "down",
-          "streak": 1,
-          "sealType": "turnover",
-          "amount": 10.31,
+          "sealType": "t",
+          "amount": 29.4,
           "pctChange": -10.01
         },
         {
-          "code": "601595",
-          "name": "上海电影",
+          "code": "300469",
+          "name": "信息发展",
           "tag": "跌停",
           "tagKind": "down",
           "streak": 1,
           "sealType": "turnover",
-          "amount": 9.47,
-          "pctChange": -10.01
-        },
-        {
-          "code": "600327",
-          "name": "大东方",
-          "tag": "跌停",
-          "tagKind": "down",
-          "streak": 1,
-          "sealType": "turnover",
-          "amount": 8.78,
-          "pctChange": -10.0
-        },
-        {
-          "code": "600619",
-          "name": "海立股份",
-          "tag": "跌停",
-          "tagKind": "down",
-          "streak": 1,
-          "sealType": "turnover",
-          "amount": 8.04,
-          "pctChange": -10.02
-        },
-        {
-          "code": "002119",
-          "name": "康强电子",
-          "tag": "跌停",
-          "tagKind": "down",
-          "streak": 1,
-          "sealType": "turnover",
-          "amount": 7.78,
-          "pctChange": -9.98
-        },
-        {
-          "code": "603283",
-          "name": "赛腾股份",
-          "tag": "跌停",
-          "tagKind": "down",
-          "streak": 1,
-          "sealType": "turnover",
-          "amount": 7.43,
-          "pctChange": -10.01
-        },
-        {
-          "code": "603516",
-          "name": "淳中科技",
-          "tag": "跌停",
-          "tagKind": "down",
-          "streak": 1,
-          "sealType": "turnover",
-          "amount": 7.18,
-          "pctChange": -10.0
-        },
-        {
-          "code": "002425",
-          "name": "凯撒文化",
-          "tag": "跌停",
-          "tagKind": "down",
-          "streak": 1,
-          "sealType": "turnover",
-          "amount": 6.57,
-          "pctChange": -9.94
-        },
-        {
-          "code": "000026",
-          "name": "飞亚达",
-          "tag": "跌停",
-          "tagKind": "down",
-          "streak": 1,
-          "sealType": "turnover",
-          "amount": 6.23,
-          "pctChange": -9.98
-        },
-        {
-          "code": "603928",
-          "name": "兴业股份",
-          "tag": "跌停",
-          "tagKind": "down",
-          "streak": 1,
-          "sealType": "turnover",
-          "amount": 4.8,
-          "pctChange": -10.01
-        },
-        {
-          "code": "300550",
-          "name": "和仁科技",
-          "tag": "跌停",
-          "tagKind": "down",
-          "streak": 1,
-          "sealType": "turnover",
-          "amount": 4.42,
+          "amount": 4.27,
           "pctChange": -20.0
         },
         {
-          "code": "002549",
-          "name": "凯美特气",
+          "code": "605378",
+          "name": "野马电池",
           "tag": "跌停",
           "tagKind": "down",
           "streak": 1,
           "sealType": "turnover",
-          "amount": 4.07,
-          "pctChange": -10.0
-        },
-        {
-          "code": "603009",
-          "name": "北特科技",
-          "tag": "跌停",
-          "tagKind": "down",
-          "streak": 1,
-          "sealType": "turnover",
-          "amount": 4.02,
-          "pctChange": -10.0
-        },
-        {
-          "code": "001301",
-          "name": "尚太科技",
-          "tag": "跌停",
-          "tagKind": "down",
-          "streak": 1,
-          "sealType": "turnover",
-          "amount": 3.45,
-          "pctChange": -10.0
-        },
-        {
-          "code": "002947",
-          "name": "恒铭达",
-          "tag": "跌停",
-          "tagKind": "down",
-          "streak": 1,
-          "sealType": "turnover",
-          "amount": 3.43,
-          "pctChange": -10.0
-        },
-        {
-          "code": "002811",
-          "name": "郑中设计",
-          "tag": "跌停",
-          "tagKind": "down",
-          "streak": 1,
-          "sealType": "turnover",
-          "amount": 3.4,
-          "pctChange": -9.97
-        },
-        {
-          "code": "601133",
-          "name": "柏诚股份",
-          "tag": "跌停",
-          "tagKind": "down",
-          "streak": 1,
-          "sealType": "turnover",
-          "amount": 3.09,
-          "pctChange": -10.0
-        },
-        {
-          "code": "603955",
-          "name": "灵动股份",
-          "tag": "跌停",
-          "tagKind": "down",
-          "streak": 1,
-          "sealType": "turnover",
-          "amount": 3.07,
+          "amount": 1.96,
           "pctChange": -10.01
         },
         {
-          "code": "603706",
-          "name": "东方环宇",
-          "tag": "跌停",
-          "tagKind": "down",
-          "streak": 1,
-          "sealType": "turnover",
-          "amount": 2.93,
-          "pctChange": -10.02
-        },
-        {
-          "code": "603040",
-          "name": "新坐标",
-          "tag": "跌停",
-          "tagKind": "down",
-          "streak": 1,
-          "sealType": "turnover",
-          "amount": 2.85,
-          "pctChange": -10.0
-        },
-        {
-          "code": "002199",
-          "name": "东晶电子",
-          "tag": "跌停",
-          "tagKind": "down",
-          "streak": 1,
-          "sealType": "turnover",
-          "amount": 2.73,
-          "pctChange": -10.0
-        },
-        {
-          "code": "603725",
-          "name": "天安新材",
-          "tag": "跌停",
-          "tagKind": "down",
-          "streak": 1,
-          "sealType": "turnover",
-          "amount": 2.69,
-          "pctChange": -10.01
-        },
-        {
-          "code": "600520",
-          "name": "三佳科技",
-          "tag": "跌停",
-          "tagKind": "down",
-          "streak": 1,
-          "sealType": "turnover",
-          "amount": 2.66,
-          "pctChange": -10.01
-        },
-        {
-          "code": "603580",
-          "name": "艾艾精工",
-          "tag": "跌停",
-          "tagKind": "down",
-          "streak": 1,
-          "sealType": "turnover",
-          "amount": 2.44,
-          "pctChange": -10.0
-        },
-        {
-          "code": "603985",
-          "name": "恒润股份",
-          "tag": "跌停",
-          "tagKind": "down",
-          "streak": 1,
-          "sealType": "turnover",
-          "amount": 2.21,
-          "pctChange": -9.97
-        },
-        {
-          "code": "603391",
-          "name": "力聚热能",
-          "tag": "跌停",
-          "tagKind": "down",
-          "streak": 1,
-          "sealType": "turnover",
-          "amount": 2.2,
-          "pctChange": -10.0
-        },
-        {
-          "code": "603051",
-          "name": "鹿山新材",
-          "tag": "跌停",
-          "tagKind": "down",
-          "streak": 1,
-          "sealType": "turnover",
-          "amount": 1.97,
-          "pctChange": -10.0
-        },
-        {
-          "code": "605288",
-          "name": "凯迪股份",
+          "code": "920593",
+          "name": "鼎智科技",
           "tag": "跌停",
           "tagKind": "down",
           "streak": 1,
           "sealType": "turnover",
           "amount": 1.78,
-          "pctChange": -10.0
+          "pctChange": -30.0
         },
         {
-          "code": "603660",
-          "name": "苏州科达",
+          "code": "001278",
+          "name": "一彬科技",
           "tag": "跌停",
           "tagKind": "down",
           "streak": 1,
           "sealType": "turnover",
-          "amount": 1.76,
-          "pctChange": -10.0
-        },
-        {
-          "code": "603037",
-          "name": "凯众股份",
-          "tag": "跌停",
-          "tagKind": "down",
-          "streak": 1,
-          "sealType": "turnover",
-          "amount": 1.67,
-          "pctChange": -9.97
-        },
-        {
-          "code": "002652",
-          "name": "扬子新材",
-          "tag": "跌停",
-          "tagKind": "down",
-          "streak": 1,
-          "sealType": "turnover",
-          "amount": 1.65,
-          "pctChange": -9.92
-        },
-        {
-          "code": "605118",
-          "name": "力鼎光电",
-          "tag": "跌停",
-          "tagKind": "down",
-          "streak": 1,
-          "sealType": "turnover",
-          "amount": 1.62,
-          "pctChange": -9.98
-        },
-        {
-          "code": "603976",
-          "name": "正川股份",
-          "tag": "跌停",
-          "tagKind": "down",
-          "streak": 1,
-          "sealType": "turnover",
-          "amount": 1.6,
-          "pctChange": -9.98
-        },
-        {
-          "code": "605255",
-          "name": "天普股份",
-          "tag": "跌停",
-          "tagKind": "down",
-          "streak": 1,
-          "sealType": "turnover",
-          "amount": 1.6,
-          "pctChange": -10.0
-        },
-        {
-          "code": "603001",
-          "name": "奥康国际",
-          "tag": "跌停",
-          "tagKind": "down",
-          "streak": 1,
-          "sealType": "turnover",
-          "amount": 1.41,
-          "pctChange": -10.0
-        },
-        {
-          "code": "001229",
-          "name": "魅视科技",
-          "tag": "跌停",
-          "tagKind": "down",
-          "streak": 1,
-          "sealType": "turnover",
-          "amount": 1.38,
+          "amount": 1.56,
           "pctChange": -10.01
-        },
-        {
-          "code": "001266",
-          "name": "宏英智能",
-          "tag": "跌停",
-          "tagKind": "down",
-          "streak": 1,
-          "sealType": "turnover",
-          "amount": 1.18,
-          "pctChange": -9.98
-        },
-        {
-          "code": "002148",
-          "name": "北纬科技",
-          "tag": "跌停",
-          "tagKind": "down",
-          "streak": 1,
-          "sealType": "one",
-          "amount": 1.0,
-          "pctChange": -9.99
-        },
-        {
-          "code": "603130",
-          "name": "云中马",
-          "tag": "跌停",
-          "tagKind": "down",
-          "streak": 1,
-          "sealType": "turnover",
-          "amount": 0.87,
-          "pctChange": -9.99
-        },
-        {
-          "code": "605588",
-          "name": "冠石科技",
-          "tag": "跌停",
-          "tagKind": "down",
-          "streak": 1,
-          "sealType": "turnover",
-          "amount": 0.69,
-          "pctChange": -9.99
-        },
-        {
-          "code": "603838",
-          "name": "四通股份",
-          "tag": "跌停",
-          "tagKind": "down",
-          "streak": 1,
-          "sealType": "turnover",
-          "amount": 0.42,
-          "pctChange": -9.96
         }
       ]
     }
